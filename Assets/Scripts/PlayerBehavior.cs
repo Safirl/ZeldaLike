@@ -55,7 +55,7 @@ public class PlayerBehavior : MonoBehaviour
         Move();
     }
 
-    private void Move()
+    protected void Move()
     {
         float horizontalOffset = Input.GetAxis("Horizontal");
         float verticalOffset = Input.GetAxis("Vertical");
@@ -180,6 +180,7 @@ public class PlayerBehavior : MonoBehaviour
     //   displayed when SPACE will be pressed
     // - the player is in an instantDialog zone, then he grabs the dialog information and
     //   displays it instantaneously
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "NPC")
