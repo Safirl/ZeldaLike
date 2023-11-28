@@ -8,34 +8,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Represents the cardinal directions (South, North, West, East)
-public enum CardinalDirections { CARDINAL_S, CARDINAL_N, CARDINAL_W, CARDINAL_E };
-
-public class PlayerBehavior : MonoBehaviour
+public class PlayerBehavior : AbstractCharacter
 {
-    public float m_speed = 1f; // Speed of the player when he moves
-    private CardinalDirections m_direction; // Current facing direction of the player
-
-    public Sprite m_frontSprite = null;
-    public Sprite m_leftSprite = null;
-    public Sprite m_rightSprite = null;
-    public Sprite m_backSprite = null;
-
-    public GameObject m_fireBall = null; // Object the player can shoot
 
     public GameObject m_map = null;
     public DialogManager m_dialogDisplayer;
 
     private Dialog m_closestNPCDialog;
 
-    Rigidbody2D m_rb2D;
-    SpriteRenderer m_renderer;
-
-    void Awake()
+    protected override void Awake()
     {
-        m_rb2D = gameObject.GetComponent<Rigidbody2D>();
-        m_renderer = gameObject.GetComponent<SpriteRenderer>();
-
+        base.Awake();
         m_closestNPCDialog = null;
     }
 
@@ -50,7 +33,6 @@ public class PlayerBehavior : MonoBehaviour
         {
             return;
         }
-
         // Moves the player regarding the inputs
         Move();
     }
@@ -70,22 +52,22 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (horizontalOffset > 0)
             {
-                m_direction = CardinalDirections.CARDINAL_E;
+                SetDirection(CardinalDirections.CARDINAL_E);
             }
             else
             {
-                m_direction = CardinalDirections.CARDINAL_W;
+                SetDirection(CardinalDirections.CARDINAL_W);
             }
         }
         else if (Mathf.Abs(horizontalOffset) < Mathf.Abs(verticalOffset))
         {
             if (verticalOffset > 0)
             {
-                m_direction = CardinalDirections.CARDINAL_N;
+                SetDirection(CardinalDirections.CARDINAL_N);
             }
             else
             {
-                m_direction = CardinalDirections.CARDINAL_S;
+                SetDirection(CardinalDirections.CARDINAL_S);
             }
         }
     }
@@ -130,46 +112,8 @@ public class PlayerBehavior : MonoBehaviour
             }
             else 
             {
-                ShootFireball();
+                Debug.Log("attack");
             }
-        }
-    }
-
-    // Changes the player sprite regarding it position
-    // (back when going North, front when going south, right when going east, left when going west)
-    private void ChangeSpriteToMatchDirection()
-    {
-        if (m_direction == CardinalDirections.CARDINAL_N)
-        {
-            m_renderer.sprite = m_backSprite;
-        }
-        else if (m_direction == CardinalDirections.CARDINAL_S)
-        {
-            m_renderer.sprite = m_frontSprite;
-        }
-        else if (m_direction == CardinalDirections.CARDINAL_E)
-        {
-            m_renderer.sprite = m_rightSprite;
-        }
-        else if (m_direction == CardinalDirections.CARDINAL_W)
-        {
-            m_renderer.sprite = m_leftSprite;
-        }
-    }
-
-    // Creates a fireball, and launches it
-    private void ShootFireball()
-    {
-        GameObject newFireball = Instantiate(m_fireBall, this.transform) as GameObject;
-
-        FireBehavior fireBallBehavior = newFireball.GetComponent<FireBehavior>();
-
-        if (fireBallBehavior != null)
-        {
-            // Lauches the fireball upward
-            // (Vector2 represents a direction in x and y ;
-            // so Vector2(0f, 1f) is a direction of 0 in x and 1 in y (up)
-            fireBallBehavior.Launch(new Vector2(0f, 1f));
         }
     }
 
