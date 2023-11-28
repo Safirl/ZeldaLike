@@ -15,7 +15,8 @@ public class PlayerBehavior : AbstractCharacter
     public GameObject m_base = null;
     public DialogManager m_dialogDisplayer;
     private GameObject lastEnnemyTouched = null;
-    public GameObject Sword = null;
+    [SerializeField] private GameObject Sword = null;
+    
 
     private Dialog m_closestNPCDialog;
 
@@ -126,8 +127,10 @@ public class PlayerBehavior : AbstractCharacter
     }
 
     public void Attack() 
-    { 
-        
+    {
+        SwordBehavior sword = Sword.GetComponent<SwordBehavior>();
+        sword.SetSwordPosition(m_rb2D.transform, GetDirection());
+        Instantiate(Sword);
     }
 
     // This is automatically called by Unity when the gameObject (here the player)

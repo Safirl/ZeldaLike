@@ -6,7 +6,7 @@ using UnityEngine;
 public enum CardinalDirections { CARDINAL_S, CARDINAL_N, CARDINAL_W, CARDINAL_E };
 public class AbstractCharacter : MonoBehaviour
 {
-    
+
     private CardinalDirections m_direction; // Current facing direction of the player
     [SerializeField] protected int lives;
     [SerializeField] protected int damage;
@@ -81,13 +81,20 @@ public class AbstractCharacter : MonoBehaviour
         lives -= damage;
         Debug.Log(lives);
 
-        if(lives < 1)
+        if (lives < 1)
         {
+            isDead();
             Debug.Log("I'm dead");
             //todo
             //envoie fonction isDead(this)
             //this == base --> Fin du jeu.
         }
+    }
+
+    public void isDead()
+    {
+
+
     }
 }
 
