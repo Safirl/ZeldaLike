@@ -32,14 +32,28 @@ public class AbstractCharacter : MonoBehaviour
         m_direction = newDirection;
     }
 
+    public int GetDamage()
+    {
+        return damage;
+    }
+    public void SetDamage(int newDamage)
+    {
+        damage = newDamage;
+    }
+
     //----------------------------------------------
 
     // Start is called before the first frame update
     protected virtual void Awake()
     {
-        m_rb2D = this.gameObject.GetComponent<Rigidbody2D>();
-        m_renderer = this.gameObject.GetComponent<SpriteRenderer>();
-        Debug.Log(this.gameObject);
+        if (gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            m_rb2D = gameObject.GetComponent<Rigidbody2D>();
+        }
+        if (gameObject.GetComponent<SpriteRenderer>() != null)
+        {
+            m_renderer = gameObject.GetComponent<SpriteRenderer>();
+        }
     }
 
     protected void ChangeSpriteToMatchDirection()
@@ -62,5 +76,18 @@ public class AbstractCharacter : MonoBehaviour
         }
     }
 
+    public void IsDamaged(int damage)
+    {
+        lives -= damage;
+        Debug.Log(lives);
+
+        if(lives < 1)
+        {
+            Debug.Log("I'm dead");
+            //todo
+            //envoie fonction isDead(this)
+            //this == base --> Fin du jeu.
+        }
+    }
 }
 
