@@ -1,7 +1,7 @@
 ﻿/* Author : Raphaël Marczak - 2018/2020, for MIAMI Teaching (IUT Tarbes) and MMI Teaching (IUT Bordeaux Montaigne)
  * 
  * This work is licensed under the CC0 License. 
- * 
+ * Reworked by Loic et Matthieu
  */
 
 using System.Collections;
@@ -12,7 +12,10 @@ public class PlayerBehavior : AbstractCharacter
 {
 
     public GameObject m_map = null;
+    public GameObject m_base = null;
     public DialogManager m_dialogDisplayer;
+    private GameObject lastEnnemyTouched = null;
+    public GameObject Sword = null;
 
     private Dialog m_closestNPCDialog;
 
@@ -113,10 +116,19 @@ public class PlayerBehavior : AbstractCharacter
             else 
             {
                 Debug.Log("attack");
+                Attack();
             }
         }
     }
+    public void SpawnBase(Transform PlayerTransform)
+    {
+        transform.position = PlayerTransform.position;
+    }
 
+    public void Attack() 
+    { 
+        
+    }
 
     // This is automatically called by Unity when the gameObject (here the player)
     // enters a trigger zone. Here, two solutions
@@ -139,6 +151,11 @@ public class PlayerBehavior : AbstractCharacter
                 m_dialogDisplayer.SetDialog(instantDialog.GetDialog());
             }
         }
+        else if (collision.tag == "Ennemy")
+        {
+            lastEnnemyTouched = collision.gameObject;
+            Debug.Log(lastEnnemyTouched.name.ToString());
+        }
     }
 
     // This is automatically called by Unity when the gameObject (here the player)
@@ -155,6 +172,11 @@ public class PlayerBehavior : AbstractCharacter
         else if (collision.tag == "InstantDialog")
         {
             Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "Ennemy")
+        {
+            Debug.Log(lastEnnemyTouched.name.ToString() + " is not selected");
+            lastEnnemyTouched = null;
         }
     }
 }
