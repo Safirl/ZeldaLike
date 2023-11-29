@@ -8,6 +8,7 @@ public class AbstractAI : AbstractCharacter
 {
     [SerializeField] protected Transform target;
     [SerializeField] protected float nextWayPointDistance = 3f;
+    [SerializeField] protected GameObject Sword = null;
 
     protected Path path;
     protected int currentWayPoint = 0;
@@ -16,9 +17,20 @@ public class AbstractAI : AbstractCharacter
     protected Seeker seeker;
     protected string TargetedType;
     [SerializeField] protected List<GameObject> targetsReachable;
-    float closestDistance = 100000f;
-    
+    protected float cooldown = 0f;
+    protected float countdown = 0f;
 
+    //Getter---------------------------
+    public Transform GetTarget()
+    {
+        return target;
+    }
+    /*public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }*/
+
+    //Getter---------------------------
 
 
     // Start is called before the first frame update
@@ -35,22 +47,43 @@ public class AbstractAI : AbstractCharacter
                 float closestDistance = 100000f;
                 foreach (GameObject targetReachable in targetsReachable)
                 {
-                    float distance = Vector2.Distance(transform.position, targetReachable.transform.position);
-
-                    if (distance < closestDistance)
+                    if (targetReachable != null)
                     {
-                        Debug.Log(targetReachable.name);
-                        closestDistance = distance;
-                        target = targetReachable.transform;
-                        
+                        float distance = Vector2.Distance(transform.position, targetReachable.transform.position);
+
+                        if (distance < closestDistance)
+                        {
+                            closestDistance = distance;
+                            target = targetReachable.transform;
+
+                        }
+                    }
+                    else
+                    {
+                        targetsReachable.Remove(targetReachable);
+                    }
+                    if (closestDistance < 20f)
+                    {
+                        Attack();
                     }
                 }
             }
     }
 
+    public void Attack()
+    {
+        if (cooldown >= 0.5f)
+        {
+            Debug.Log("AiAttacks");
+            cooldown = 0f;
+            Sword.SetActive(true);
+            countdown = timer;
+        }
+    }
+
     public void UpdatePath()
     {
-        if (seeker != null)
+        if (seeker != null && target != null)
         {
             if (seeker.IsDone())
             {
@@ -68,6 +101,17 @@ public class AbstractAI : AbstractCharacter
         }
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        cooldown += Time.deltaTime;
+
+        if(timer - countdown >= 0.2)
+        {
+            Sword.SetActive(false);
+        }
+
+    }
 
     // Update is called once per frame
     protected void FixedUpdate()
@@ -94,8 +138,9 @@ public class AbstractAI : AbstractCharacter
         {
             currentWayPoint++;
         }
-
     }
+
+    
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {

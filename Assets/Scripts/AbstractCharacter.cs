@@ -99,9 +99,10 @@ public class AbstractCharacter : MonoBehaviour
         }
     }
 
-    public void isDead()
+    public virtual void isDead()
     {
         Destroy(gameObject);
+
 
     }
 

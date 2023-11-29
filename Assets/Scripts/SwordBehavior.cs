@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class SwordBehavior : MonoBehaviour
 {
-    public PlayerBehavior m_player;
-    public AbstractAI enemyBehavior;
+    [SerializeField] private PlayerBehavior m_player;
+    /*public AbstractAI enemyBehavior;*/
 
     // Start is called before the first frame update
     void Start()

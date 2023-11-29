@@ -16,7 +16,7 @@ public class EnemyBehavior : AbstractAI
     public override void ChoseTargetToAttack()
     {
         base.ChoseTargetToAttack();
-        if (targetsReachable.Count == 0)
+        if (targetsReachable.Count == 0 && GameObject.FindGameObjectWithTag("PlayerBase") != null)
             target = GameObject.FindGameObjectWithTag("PlayerBase").GetComponent<Transform>();
     }
 
@@ -27,11 +27,19 @@ public class EnemyBehavior : AbstractAI
         {
             targetsReachable.Add(other.gameObject);
         }
+        if (other.tag == "PlayerBase")
+        {
+            targetsReachable.Add(other.gameObject);
+        }
     }
     protected override void OnTriggerExit2D(Collider2D other)
     {
         base.OnTriggerExit2D(other);
         if (other.tag == "Player")
+        {
+            targetsReachable.Remove(other.gameObject);
+        }
+        if (other.tag == "PlayerBase")
         {
             targetsReachable.Remove(other.gameObject);
         }

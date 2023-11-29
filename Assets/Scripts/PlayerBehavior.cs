@@ -152,6 +152,12 @@ public class PlayerBehavior : AbstractCharacter
         
     }
 
+    public override void isDead()
+    {
+
+        base.isDead();
+    }
+
     // This is automatically called by Unity when the gameObject (here the player)
     // enters a trigger zone. Here, two solutions
     // - the player is in an NPC zone, then he grabs the dialog information ready to be
