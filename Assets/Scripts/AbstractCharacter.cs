@@ -22,6 +22,8 @@ public class AbstractCharacter : MonoBehaviour
     protected Rigidbody2D m_rb2D;
     protected SpriteRenderer m_renderer;
 
+    protected float timer = 0f;
+
     //Get/SetManager--------------------------------
     public CardinalDirections GetDirection()
     {
@@ -54,6 +56,12 @@ public class AbstractCharacter : MonoBehaviour
         {
             m_renderer = gameObject.GetComponent<SpriteRenderer>();
         }
+    }
+
+    protected virtual void Update()
+    {
+        timer += Time.deltaTime;
+        PositionRegardingPlayer();
     }
 
     protected void ChangeSpriteToMatchDirection()
@@ -93,8 +101,31 @@ public class AbstractCharacter : MonoBehaviour
 
     public void isDead()
     {
-
+        Destroy(gameObject);
 
     }
+
+    public virtual void PositionRegardingPlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            SpriteRenderer playerRenderer = player.GetComponent<SpriteRenderer>();
+
+            if (playerRenderer != null)
+            {
+                if (this.transform.position.y < player.transform.position.y)
+                {
+                    m_renderer.sortingOrder = playerRenderer.sortingOrder + 1;
+                }
+                else
+                {
+                    m_renderer.sortingOrder = playerRenderer.sortingOrder - 1;
+                }
+            }
+        }
+    }
 }
+
 
