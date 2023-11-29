@@ -15,8 +15,13 @@ public class PlayerBehavior : AbstractCharacter
     public GameObject m_base = null;
     public DialogManager m_dialogDisplayer;
     private GameObject lastEnnemyTouched = null;
+    [SerializeField] private GameObject SwordPivot = null;
     [SerializeField] private GameObject Sword = null;
-    
+    private float countdown = 0f;
+    private bool attacking;
+    private float cooldown = 0f;
+
+
 
     private Dialog m_closestNPCDialog;
 
@@ -80,9 +85,10 @@ public class PlayerBehavior : AbstractCharacter
     // This update is called at the FPS which can be fluctuating
     // and should be called for any regular actions not based on
     // physics (i.e. everything not related to RigidBody)
-    private void Update()
+    protected override void Update()
     {
-
+        base.Update();
+        cooldown += Time.deltaTime;
         // If the player presses M, the map will be activated if not on screen
         // or desactivated if already on screen
         if (Input.GetKeyDown(KeyCode.M))
@@ -114,11 +120,18 @@ public class PlayerBehavior : AbstractCharacter
             {
                 m_dialogDisplayer.SetDialog(m_closestNPCDialog.GetDialog());
             }
-            else 
+            else if (cooldown >= 0.5f)
             {
                 Debug.Log("attack");
                 Attack();
+                attacking = true;
+                cooldown = 0f;
             }
+        }
+        if (timer - countdown >= 0.2 && attacking == true)
+        {
+            Sword.SetActive(false);
+            attacking = false;
         }
     }
     public void SpawnBase(Transform PlayerTransform)
@@ -128,9 +141,15 @@ public class PlayerBehavior : AbstractCharacter
 
     public void Attack() 
     {
-        SwordBehavior sword = Sword.GetComponent<SwordBehavior>();
-        sword.SetSwordPosition(m_rb2D.transform, GetDirection());
-        Instantiate(Sword);
+        PivotBehavior Swordpivot = SwordPivot.GetComponent<PivotBehavior>();
+        Swordpivot.SetSwordPosition(GetDirection());
+        Sword.SetActive(true);
+        countdown = timer;
+    }
+
+    public override void PositionRegardingPlayer()
+    {
+        
     }
 
     // This is automatically called by Unity when the gameObject (here the player)
