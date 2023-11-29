@@ -9,16 +9,15 @@ public class EnemyBehavior : AbstractAI
     // Start is called before the first frame update
     protected override void Start()
     {
-        base.Start();
-        target = GameObject.FindGameObjectWithTag("PlayerBase").GetComponent<Transform>();
         TargetedType = "Ally";
+        base.Start();
     }
 
-    // Update is called once per frame
-    protected override void Update()
+    public override void ChoseTargetToAttack()
     {
-        base.Update();
-        
+        base.ChoseTargetToAttack();
+        if (targetsReachable.Count == 0)
+            target = GameObject.FindGameObjectWithTag("PlayerBase").GetComponent<Transform>();
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)

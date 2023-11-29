@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System;
 
 public class AbstractAI : AbstractCharacter
 {
@@ -14,8 +15,8 @@ public class AbstractAI : AbstractCharacter
 
     protected Seeker seeker;
     protected string TargetedType;
-    protected ArrayList targetsReachable;
-    float closestDistance;
+    [SerializeField] protected List<GameObject> targetsReachable;
+    float closestDistance = 100000f;
     
 
 
@@ -25,28 +26,37 @@ public class AbstractAI : AbstractCharacter
     {
         seeker = GetComponent<Seeker>();
 
+        InvokeRepeating("ChoseTargetToAttack", 0f, 0.5f);
         InvokeRepeating("UpdatePath", 0f, 0.5f);
-        InvokeRepeating("ChoseTargetToAttack", 0f, 0.3f);
     }
-    public void ChoseTargetToAttack()
+    public virtual void ChoseTargetToAttack()
     {
-        Debug.Log(targetsReachable);
-        foreach (GameObject targetReachable in targetsReachable)
-        {
-            float distance = Vector2.Distance(transform.position, targetReachable.transform.position);
+            if (targetsReachable.Count > 0) { 
+                float closestDistance = 100000f;
+                foreach (GameObject targetReachable in targetsReachable)
+                {
+                    float distance = Vector2.Distance(transform.position, targetReachable.transform.position);
 
-            if (distance < closestDistance)
-            {
-                target = targetReachable.transform;
+                    if (distance < closestDistance)
+                    {
+                        Debug.Log(targetReachable.name);
+                        closestDistance = distance;
+                        target = targetReachable.transform;
+                        
+                    }
+                }
             }
-        }
     }
 
     public void UpdatePath()
     {
-        if (seeker.IsDone())
-            seeker.StartPath(m_rb2D.position, target.position, OnPathComplete);
-        
+        if (seeker != null)
+        {
+            if (seeker.IsDone())
+            {
+                seeker.StartPath(m_rb2D.position, target.position, OnPathComplete);
+            }
+        }
     }
 
     public void OnPathComplete(Path p)
@@ -89,9 +99,9 @@ public class AbstractAI : AbstractCharacter
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (TargetedType == other.tag) 
-        
-        { 
+        if (TargetedType == other.tag)
+
+        {
             targetsReachable.Add(other.gameObject);
         }
     }
