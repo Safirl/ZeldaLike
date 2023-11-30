@@ -7,13 +7,13 @@ public class ValidateMessage : MonoBehaviour
 {
     [SerializeField] Text message;
     [SerializeField] GameObject messagePrefab = null;
-    [SerializeField] GameObject player = null;
+    GameObject player = null;
     [SerializeField] GameObject worlds = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
