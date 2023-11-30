@@ -14,8 +14,11 @@ public class FollowGameObject : MonoBehaviour {
 	// At each frame, the camera position is set to the "objetToFollow" x and y coordinates
     // (z remains the one of the camera, to respect the depth)
 	void Update () {
-        this.transform.position = new Vector3(m_objectToFollow.transform.position.x,
-                                              m_objectToFollow.transform.position.y,
-                                              this.transform.position.z);
+        if (m_objectToFollow != null)
+        {
+            this.transform.position = new Vector3(m_objectToFollow.transform.position.x,
+                                                  m_objectToFollow.transform.position.y,
+                                                  this.transform.position.z);
+        }
 	}
 }

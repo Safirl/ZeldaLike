@@ -8,6 +8,9 @@ TagManager:
   - NPC
   - InstantDialog
   - Fireball
+  - Enemy
+  - PlayerBase
+  - Ally
   layers:
   - Default
   - TransparentFX
