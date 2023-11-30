@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SwordBehavior : MonoBehaviour
 {
     [SerializeField] private PlayerBehavior m_player;
+    [SerializeField] private AllyBehavior m_ally;
     /*public AbstractAI enemyBehavior;*/
 
     // Start is called before the first frame update
@@ -25,8 +26,17 @@ public class SwordBehavior : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            AbstractAI enemy = collision.GetComponent<AbstractAI>();
-            enemy.IsDamaged(m_player.GetDamage());
+            if (m_player != null)
+            {
+                EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
+                enemy.IsDamaged(m_player.GetDamage());
+            }
+            else if (m_ally != null)
+            {
+                EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
+                enemy.IsDamaged(m_ally.GetDamage());
+            }
+
         }
     } 
 }

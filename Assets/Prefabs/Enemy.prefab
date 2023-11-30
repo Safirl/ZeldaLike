@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AIParent: {fileID: 7301510239305291458}
   m_EnemyBehavior: {fileID: 710674943268234718}
+  m_allyBehavior: {fileID: 0}
 --- !u!1 &2487077372181972663
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +219,8 @@ GameObject:
   - component: {fileID: 7198557212079035617}
   - component: {fileID: 3704314839374967512}
   - component: {fileID: 710674943268234718}
+  - component: {fileID: 1606863121970191744}
+  - component: {fileID: 3788834419737715543}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -395,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724f110b527eb80439d2592fd66a09b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 10
+  lives: 15
   damage: 5
   attackSpeed: 0
   m_speed: 3000
@@ -407,3 +410,50 @@ MonoBehaviour:
   nextWayPointDistance: 3
   Sword: {fileID: 2487077372181972663}
   targetsReachable: []
+--- !u!114 &1606863121970191744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7301510239305291458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e620a935b19ec45bf6530fbfe89790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &3788834419737715543
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7301510239305291458}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.27613258, y: -1.4528179}
+  m_Size: {x: 9.556934, y: 15.906136}
+  m_Direction: 0

@@ -87,12 +87,10 @@ public class AbstractCharacter : MonoBehaviour
     public void IsDamaged(int damage)
     {
         lives -= damage;
-        Debug.Log(lives);
 
         if (lives < 1)
         {
             isDead();
-            Debug.Log("I'm dead");
             //todo
             //envoie fonction isDead(this)
             //this == base --> Fin du jeu.

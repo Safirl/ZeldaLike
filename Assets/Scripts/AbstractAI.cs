@@ -38,8 +38,8 @@ public class AbstractAI : AbstractCharacter
     {
         seeker = GetComponent<Seeker>();
 
-        InvokeRepeating("ChoseTargetToAttack", 0f, 0.5f);
         InvokeRepeating("UpdatePath", 0f, 0.5f);
+        InvokeRepeating("ChoseTargetToAttack", 0f, 0.5f);
     }
     public virtual void ChoseTargetToAttack()
     {
@@ -54,13 +54,15 @@ public class AbstractAI : AbstractCharacter
                         if (distance < closestDistance)
                         {
                             closestDistance = distance;
-                            target = targetReachable.transform;
-
+                            if (targetReachable != null)
+                                target = targetReachable.transform;
+    
                         }
                     }
                     else
                     {
                         targetsReachable.Remove(targetReachable);
+                        break;
                     }
                     if (closestDistance < 20f)
                     {
@@ -72,9 +74,8 @@ public class AbstractAI : AbstractCharacter
 
     public void Attack()
     {
-        if (cooldown >= 0.5f)
+        if (cooldown >= 0.8f)
         {
-            Debug.Log("AiAttacks");
             cooldown = 0f;
             Sword.SetActive(true);
             countdown = timer;

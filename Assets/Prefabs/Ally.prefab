@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9223205259340809199}
   - component: {fileID: 5240146815864013741}
   - component: {fileID: 9097624548546554895}
-  - component: {fileID: 6243770388690063364}
+  - component: {fileID: 6755708366437497217}
   m_Layer: 0
   m_Name: EnemySword
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1023232348183512886}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 12.6, y: 0, z: 0}
+  m_LocalPosition: {x: 13, y: 0, z: 0}
   m_LocalScale: {x: 0.4676, y: 0.7134399, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e620a935b19ec45bf6530fbfe89790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6243770388690063364
+--- !u!114 &6755708366437497217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,10 +153,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1023232348183512886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 773c031b2da678246a180e461e43ed57, type: 3}
+  m_Script: {fileID: 11500000, guid: 891132bb7f8049f41a47728782b8d3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_parent: {fileID: 0}
+  m_player: {fileID: 0}
+  m_ally: {fileID: 439604001049946184}
 --- !u!1 &3266454703362582099
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,8 +183,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3266454703362582099}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -52.7, y: -25.1, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -202,8 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d4cc3accfcc8b45b4a153463748561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AIParent: {fileID: 0}
+  m_AIParent: {fileID: 7553737106032436760}
   m_EnemyBehavior: {fileID: 0}
+  m_allyBehavior: {fileID: 439604001049946184}
 --- !u!1 &7553737106032436760
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +221,7 @@ GameObject:
   - component: {fileID: 4295941981878087199}
   - component: {fileID: 2549404715352706451}
   - component: {fileID: 439604001049946184}
+  - component: {fileID: 6150440294621496730}
   m_Layer: 0
   m_Name: Ally
   m_TagString: Ally
@@ -234,7 +237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7553737106032436760}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.5, y: 27.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -408,8 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b851ef8700fef944b51f13a67b343b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 0
-  damage: 0
+  lives: 20
+  damage: 5
   attackSpeed: 0
   m_speed: 3000
   m_frontSprite: {fileID: 0}
@@ -418,5 +421,40 @@ MonoBehaviour:
   m_backSprite: {fileID: 0}
   target: {fileID: 0}
   nextWayPointDistance: 3
-  Sword: {fileID: 0}
+  Sword: {fileID: 1023232348183512886}
   targetsReachable: []
+--- !u!70 &6150440294621496730
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553737106032436760}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.12334871, y: -1.0909357}
+  m_Size: {x: 8.84579, y: 16.623472}
+  m_Direction: 0

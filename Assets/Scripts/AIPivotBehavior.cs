@@ -7,12 +7,12 @@ public class AIPivotBehavior : MonoBehaviour
 {
     public GameObject m_AIParent;
     public EnemyBehavior m_EnemyBehavior;
+    public AllyBehavior m_allyBehavior;
     private Transform target;
     // Start is called before the first frame update
     void Start()
     {
         m_EnemyBehavior = m_AIParent.GetComponent<EnemyBehavior>();
-        target = m_EnemyBehavior.GetTarget();
     }
 
     // Update is called once per frame
@@ -24,10 +24,13 @@ public class AIPivotBehavior : MonoBehaviour
 
     public void setSwordPosition()
     {
+        if(m_EnemyBehavior != null)
+           target = m_EnemyBehavior.GetTarget();
+        else if (m_allyBehavior != null) 
+            target = m_allyBehavior.GetTarget();
 
         if (target != null)
         {
-            target = m_EnemyBehavior.GetTarget();
             Vector3 direction = target.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
