@@ -120,6 +120,8 @@ public class PlayerBehavior : AbstractCharacter
             {
                 m_dialogDisplayer.SetDialog(m_closestNPCDialog.GetDialog());
             }
+
+
             else if (cooldown >= 0.5f)
             {
                 Debug.Log("attack");
@@ -150,6 +152,12 @@ public class PlayerBehavior : AbstractCharacter
     public override void PositionRegardingPlayer()
     {
         
+    }
+
+    public override void isDead()
+    {
+
+        base.isDead();
     }
 
     // This is automatically called by Unity when the gameObject (here the player)

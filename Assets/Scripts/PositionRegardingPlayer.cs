@@ -14,8 +14,8 @@ using UnityEngine;
 public class PositionRegardingPlayer : MonoBehaviour {
     SpriteRenderer m_renderer;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         m_renderer = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
