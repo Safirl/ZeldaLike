@@ -78,6 +78,7 @@ void SpawnWave()
             GameObject randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
             Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
+
             currentWave.EnemyCount--;
             nextSpawnTime = Time.time + currentWave.spawnInterval;
             if (currentWave.EnemyCount == 0)

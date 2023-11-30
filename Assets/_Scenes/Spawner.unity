@@ -381,7 +381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &101866769
 Transform:
   m_ObjectHideFlags: 0
@@ -22741,6 +22741,8 @@ GameObject:
   m_Component:
   - component: {fileID: 963882534}
   - component: {fileID: 963882535}
+  - component: {fileID: 963882536}
+  - component: {fileID: 963882537}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -22776,16 +22778,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963882533}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23e54a8a0eecd47c9bfa80d7ba282b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
   - waveName: 'Wave 1 '
-    EnemyCount: 2
+    EnemyCount: 1
     typeOfEnemies:
-    - {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e, type: 3}
     - {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e, type: 3}
     spawnInterval: 1
   - waveName: Wave 2
@@ -22805,6 +22806,76 @@ MonoBehaviour:
   - {fileID: 970828700}
   - {fileID: 1807750121}
   - {fileID: 2071055815}
+  eggs: 0
+--- !u!114 &963882536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963882533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875276832a224b64c802a2d87cdbfb45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - levelName: Level 1
+    waves:
+    - waveName: Wave 1
+      TypeOfEnemyToSpawn:
+      - typeOfEnemiesName: Type of enemies
+        EnemyCount: 1
+        typeOfEnemies: {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e,
+          type: 3}
+    - waveName: Wave 2
+      TypeOfEnemyToSpawn:
+      - typeOfEnemiesName: Type of enemies
+        EnemyCount: 1
+        typeOfEnemies: {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e,
+          type: 3}
+    - waveName: Wave 3
+      TypeOfEnemyToSpawn:
+      - typeOfEnemiesName: Type of enemies
+        EnemyCount: 1
+        typeOfEnemies: {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e,
+          type: 3}
+  - levelName: Level 2
+    waves:
+    - waveName: Wave 1
+      TypeOfEnemyToSpawn:
+      - typeOfEnemiesName: Type of enemies
+        EnemyCount: 1
+        typeOfEnemies: {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e,
+          type: 3}
+    - waveName: Wave 2
+      TypeOfEnemyToSpawn:
+      - typeOfEnemiesName: Type of enemies
+        EnemyCount: 1
+        typeOfEnemies: {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e,
+          type: 3}
+    - waveName: Wave 3
+      TypeOfEnemyToSpawn:
+      - typeOfEnemiesName: Type of enemies
+        EnemyCount: 1
+        typeOfEnemies: {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e,
+          type: 3}
+  spawnPoints:
+  - {fileID: 1831227754}
+  - {fileID: 2071055815}
+--- !u!114 &963882537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963882533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10b786c6205e8949abdd0d1e2562d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamev2Manager: {fileID: 963882536}
 --- !u!1 &970828699
 GameObject:
   m_ObjectHideFlags: 0
@@ -22820,7 +22891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &970828700
 Transform:
   m_ObjectHideFlags: 0
@@ -32186,7 +32257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1807750121
 Transform:
   m_ObjectHideFlags: 0
@@ -32218,7 +32289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1831227754
 Transform:
   m_ObjectHideFlags: 0
@@ -32699,7 +32770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1945674069
 Transform:
   m_ObjectHideFlags: 0
@@ -32939,7 +33010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2071055815
 Transform:
   m_ObjectHideFlags: 0
