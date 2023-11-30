@@ -120,6 +120,8 @@ public class PlayerBehavior : AbstractCharacter
             {
                 m_dialogDisplayer.SetDialog(m_closestNPCDialog.GetDialog());
             }
+
+
             else if (cooldown >= 0.5f)
             {
                 Debug.Log("attack");

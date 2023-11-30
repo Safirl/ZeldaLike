@@ -77,7 +77,7 @@ Transform:
   m_GameObject: {fileID: 2487077372181972663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 12.6, y: 0, z: 0}
+  m_LocalPosition: {x: 15.26, y: 0, z: 0}
   m_LocalScale: {x: 0.4676, y: 0.7134399, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -238,8 +238,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -39.2, y: 8.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 490947110820224026}
   m_Father: {fileID: 0}
@@ -285,8 +285,8 @@ SpriteRenderer:
   m_SortingLayerID: 250101475
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 40df1dc065fc7b04b803874357e4c8c4, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ee8c44814c295ce4a8e9862bca0bd692, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724f110b527eb80439d2592fd66a09b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 15
+  lives: 20
   damage: 5
   attackSpeed: 0
   m_speed: 3000
@@ -454,6 +454,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.27613258, y: -1.4528179}
-  m_Size: {x: 9.556934, y: 15.906136}
+  m_Offset: {x: -2.094677, y: -2.817831}
+  m_Size: {x: 14.298546, y: 27.832043}
   m_Direction: 0

@@ -64,7 +64,7 @@ public class AbstractAI : AbstractCharacter
                         targetsReachable.Remove(targetReachable);
                         break;
                     }
-                    if (closestDistance < 20f)
+                    if (closestDistance < 40f)
                     {
                         Attack();
                     }
