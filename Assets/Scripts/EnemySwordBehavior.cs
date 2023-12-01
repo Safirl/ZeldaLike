@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySwordBehavior : MonoBehaviour
 {
     [SerializeField] private EnemyBehavior m_parent;
-    /*public AbstractAI enemyBehavior;*/
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +27,7 @@ public class EnemySwordBehavior : MonoBehaviour
         }
         if (collision.tag == "Ally")
         {
-            AbstractAI ally = collision.GetComponent<AbstractAI>();
+            AllyBehavior ally = collision.GetComponent<AllyBehavior>();
             ally.IsDamaged(m_parent.GetDamage());
         }
         if (collision.tag == "PlayerBase")

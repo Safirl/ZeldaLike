@@ -139,9 +139,36 @@ public class AbstractAI : AbstractCharacter
         {
             currentWayPoint++;
         }
+
+        ChangeSpriteToMatchDirection(force);
+
     }
 
-    
+    protected override void ChangeSpriteToMatchDirection(Vector2 f)
+    {
+        if (Mathf.Abs(f.x) > Mathf.Abs(f.y))
+        {
+            if (f.x > 0)
+            {
+                m_renderer.sprite = m_rightSprite;
+            }
+            else if (f.x < 0)
+            {
+                m_renderer.sprite = m_leftSprite;
+            }
+        }
+        else {
+            if (f.y > 0)
+            {
+                m_renderer.sprite = m_backSprite;
+            }
+            else if (f.y < 0)
+            {
+                m_renderer.sprite = m_frontSprite;
+            }
+        }
+    }
+
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {

@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum CardinalDirections { CARDINAL_S, CARDINAL_N, CARDINAL_W, CARDINAL_E };
 public class AbstractCharacter : MonoBehaviour
 {
 
     private CardinalDirections m_direction; // Current facing direction of the player
-    [SerializeField] protected int lives;
+    [SerializeField] protected float lives;
     [SerializeField] protected int damage;
     [SerializeField] protected float attackSpeed;
+    [SerializeField] protected float maxLives;
     [SerializeField] protected float m_speed = 1f; // Speed of the player when he moves
+    [SerializeField] protected Image m_lifeBar;
 
 
     public Sprite m_frontSprite = null;
@@ -61,10 +64,12 @@ public class AbstractCharacter : MonoBehaviour
     protected virtual void Update()
     {
         timer += Time.deltaTime;
-       
+        m_lifeBar.fillAmount = lives / maxLives;
+
+
     }
 
-    protected void ChangeSpriteToMatchDirection()
+    protected virtual void ChangeSpriteToMatchDirection(Vector2 force = default(Vector2))
     {
         if (m_direction == CardinalDirections.CARDINAL_N)
         {
@@ -82,6 +87,7 @@ public class AbstractCharacter : MonoBehaviour
         {
             m_renderer.sprite = m_leftSprite;
         }
+        
     }
 
     public void IsDamaged(int damage)

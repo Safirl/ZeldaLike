@@ -17,7 +17,16 @@ public class EnemyBehavior : AbstractAI
     {
         base.ChoseTargetToAttack();
         if (targetsReachable.Count == 0 && GameObject.FindGameObjectWithTag("PlayerBase") != null)
+        {
             target = GameObject.FindGameObjectWithTag("PlayerBase").GetComponent<Transform>();
+            float distance = Vector2.Distance(transform.position, target.transform.position);
+
+            if (distance < 50f )
+            {
+                Attack();
+            }
+        }
+        
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
