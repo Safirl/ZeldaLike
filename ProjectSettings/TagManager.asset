@@ -9,6 +9,7 @@ TagManager:
   - InstantDialog
   - Fireball
   - Enemy
+  - EnemyWave
   - PlayerBase
   - Ally
   layers:
