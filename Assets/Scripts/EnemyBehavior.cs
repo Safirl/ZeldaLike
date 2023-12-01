@@ -21,7 +21,7 @@ public class EnemyBehavior : AbstractAI
             target = GameObject.FindGameObjectWithTag("PlayerBase").GetComponent<Transform>();
             float distance = Vector2.Distance(transform.position, target.transform.position);
 
-            if (distance < 40f )
+            if (distance < 50f )
             {
                 Attack();
             }
