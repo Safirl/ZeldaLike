@@ -10,6 +10,8 @@ TagManager:
   - Fireball
   - Enemy
   - EnemyWave
+  - PlayerBase
+  - Ally
   layers:
   - Default
   - TransparentFX

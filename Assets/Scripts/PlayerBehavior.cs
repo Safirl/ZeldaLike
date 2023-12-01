@@ -1,41 +1,33 @@
 ﻿/* Author : Raphaël Marczak - 2018/2020, for MIAMI Teaching (IUT Tarbes) and MMI Teaching (IUT Bordeaux Montaigne)
  * 
  * This work is licensed under the CC0 License. 
- * 
+ * Reworked by Loic et Matthieu
  */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Represents the cardinal directions (South, North, West, East)
-public enum CardinalDirections { CARDINAL_S, CARDINAL_N, CARDINAL_W, CARDINAL_E };
-
-public class PlayerBehavior : MonoBehaviour
+public class PlayerBehavior : AbstractCharacter
 {
-    public float m_speed = 1f; // Speed of the player when he moves
-    private CardinalDirections m_direction; // Current facing direction of the player
-
-    public Sprite m_frontSprite = null;
-    public Sprite m_leftSprite = null;
-    public Sprite m_rightSprite = null;
-    public Sprite m_backSprite = null;
-
-    public GameObject m_fireBall = null; // Object the player can shoot
 
     public GameObject m_map = null;
+    public GameObject m_base = null;
     public DialogManager m_dialogDisplayer;
+    private GameObject lastEnnemyTouched = null;
+    [SerializeField] private GameObject SwordPivot = null;
+    [SerializeField] private GameObject Sword = null;
+    private float countdown = 0f;
+    private bool attacking;
+    private float cooldown = 0f;
+
+
 
     private Dialog m_closestNPCDialog;
 
-    Rigidbody2D m_rb2D;
-    SpriteRenderer m_renderer;
-
-    void Awake()
+    protected override void Awake()
     {
-        m_rb2D = gameObject.GetComponent<Rigidbody2D>();
-        m_renderer = gameObject.GetComponent<SpriteRenderer>();
-
+        base.Awake();
         m_closestNPCDialog = null;
     }
 
@@ -50,7 +42,6 @@ public class PlayerBehavior : MonoBehaviour
         {
             return;
         }
-
         // Moves the player regarding the inputs
         Move();
     }
@@ -70,22 +61,22 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (horizontalOffset > 0)
             {
-                m_direction = CardinalDirections.CARDINAL_E;
+                SetDirection(CardinalDirections.CARDINAL_E);
             }
             else
             {
-                m_direction = CardinalDirections.CARDINAL_W;
+                SetDirection(CardinalDirections.CARDINAL_W);
             }
         }
         else if (Mathf.Abs(horizontalOffset) < Mathf.Abs(verticalOffset))
         {
             if (verticalOffset > 0)
             {
-                m_direction = CardinalDirections.CARDINAL_N;
+                SetDirection(CardinalDirections.CARDINAL_N);
             }
             else
             {
-                m_direction = CardinalDirections.CARDINAL_S;
+                SetDirection(CardinalDirections.CARDINAL_S);
             }
         }
     }
@@ -94,9 +85,10 @@ public class PlayerBehavior : MonoBehaviour
     // This update is called at the FPS which can be fluctuating
     // and should be called for any regular actions not based on
     // physics (i.e. everything not related to RigidBody)
-    private void Update()
+    protected override void Update()
     {
-
+        base.Update();
+        cooldown += Time.deltaTime;
         // If the player presses M, the map will be activated if not on screen
         // or desactivated if already on screen
         if (Input.GetKeyDown(KeyCode.M))
@@ -128,51 +120,45 @@ public class PlayerBehavior : MonoBehaviour
             {
                 m_dialogDisplayer.SetDialog(m_closestNPCDialog.GetDialog());
             }
-            else 
+
+
+            else if (cooldown >= 0.5f)
             {
-                ShootFireball();
+                Debug.Log("attack");
+                Attack();
+                attacking = true;
+                cooldown = 0f;
             }
         }
+        if (timer - countdown >= 0.2 && attacking == true)
+        {
+            Sword.SetActive(false);
+            attacking = false;
+        }
     }
-
-    // Changes the player sprite regarding it position
-    // (back when going North, front when going south, right when going east, left when going west)
-    private void ChangeSpriteToMatchDirection()
+    public void SpawnBase(Transform PlayerTransform)
     {
-        if (m_direction == CardinalDirections.CARDINAL_N)
-        {
-            m_renderer.sprite = m_backSprite;
-        }
-        else if (m_direction == CardinalDirections.CARDINAL_S)
-        {
-            m_renderer.sprite = m_frontSprite;
-        }
-        else if (m_direction == CardinalDirections.CARDINAL_E)
-        {
-            m_renderer.sprite = m_rightSprite;
-        }
-        else if (m_direction == CardinalDirections.CARDINAL_W)
-        {
-            m_renderer.sprite = m_leftSprite;
-        }
+        transform.position = PlayerTransform.position;
     }
 
-    // Creates a fireball, and launches it
-    private void ShootFireball()
+    public void Attack() 
     {
-        GameObject newFireball = Instantiate(m_fireBall, this.transform) as GameObject;
-
-        FireBehavior fireBallBehavior = newFireball.GetComponent<FireBehavior>();
-
-        if (fireBallBehavior != null)
-        {
-            // Lauches the fireball upward
-            // (Vector2 represents a direction in x and y ;
-            // so Vector2(0f, 1f) is a direction of 0 in x and 1 in y (up)
-            fireBallBehavior.Launch(new Vector2(0f, 1f));
-        }
+        PivotBehavior Swordpivot = SwordPivot.GetComponent<PivotBehavior>();
+        Swordpivot.SetSwordPosition(GetDirection());
+        Sword.SetActive(true);
+        countdown = timer;
     }
 
+    public override void PositionRegardingPlayer()
+    {
+        
+    }
+
+    public override void isDead()
+    {
+
+        base.isDead();
+    }
 
     // This is automatically called by Unity when the gameObject (here the player)
     // enters a trigger zone. Here, two solutions
@@ -195,6 +181,11 @@ public class PlayerBehavior : MonoBehaviour
                 m_dialogDisplayer.SetDialog(instantDialog.GetDialog());
             }
         }
+        else if (collision.tag == "Ennemy")
+        {
+            lastEnnemyTouched = collision.gameObject;
+            Debug.Log(lastEnnemyTouched.name.ToString());
+        }
     }
 
     // This is automatically called by Unity when the gameObject (here the player)
@@ -211,6 +202,11 @@ public class PlayerBehavior : MonoBehaviour
         else if (collision.tag == "InstantDialog")
         {
             Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "Ennemy")
+        {
+            Debug.Log(lastEnnemyTouched.name.ToString() + " is not selected");
+            lastEnnemyTouched = null;
         }
     }
 }
