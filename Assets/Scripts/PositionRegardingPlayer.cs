@@ -16,7 +16,14 @@ public class PositionRegardingPlayer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        m_renderer = gameObject.GetComponent<SpriteRenderer>();
+        if (gameObject.GetComponent<SpriteRenderer>() != null)
+        {
+            m_renderer = gameObject.GetComponent<SpriteRenderer>();
+        }
+        else if (gameObject.GetComponentInChildren<SpriteRenderer>() != null)
+        {
+            m_renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+        }
 	}
 	
 	// Update is called once per frame

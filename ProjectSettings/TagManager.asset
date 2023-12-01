@@ -12,6 +12,7 @@ TagManager:
   - EnemyWave
   - PlayerBase
   - Ally
+  - Merchant
   layers:
   - Default
   - TransparentFX
