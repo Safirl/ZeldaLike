@@ -76,13 +76,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2487077372181972663}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 15.26, y: 0, z: 0}
-  m_LocalScale: {x: 0.4676, y: 0.7134399, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 490947110820224026}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &6786518621014679542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 16}
+    oldSize: {x: 32, y: 32}
     newSize: {x: 16, y: 16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -169,8 +169,8 @@ SpriteRenderer:
   m_SortingLayerID: 250101475
   m_SortingLayer: 3
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 1640c87f92573c44582846fb20fa2ccf, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c323668a031a34a1287cfd114afd7679, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -402,10 +402,10 @@ MonoBehaviour:
   damage: 5
   attackSpeed: 0
   m_speed: 3000
-  m_frontSprite: {fileID: 0}
-  m_leftSprite: {fileID: 0}
-  m_rightSprite: {fileID: 0}
-  m_backSprite: {fileID: 0}
+  m_frontSprite: {fileID: 21300000, guid: 75a6e482dcb5c0d4992ed8bf140ccf1c, type: 3}
+  m_leftSprite: {fileID: 21300000, guid: ee8c44814c295ce4a8e9862bca0bd692, type: 3}
+  m_rightSprite: {fileID: 21300000, guid: 0824cd367b25a78479cb2413c2d624f4, type: 3}
+  m_backSprite: {fileID: 21300000, guid: 450433ec09340054f898869f8958c4f3, type: 3}
   target: {fileID: 0}
   nextWayPointDistance: 3
   Sword: {fileID: 2487077372181972663}

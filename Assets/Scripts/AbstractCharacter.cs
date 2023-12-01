@@ -64,7 +64,7 @@ public class AbstractCharacter : MonoBehaviour
        
     }
 
-    protected void ChangeSpriteToMatchDirection()
+    protected virtual void ChangeSpriteToMatchDirection(Vector2 force = default(Vector2))
     {
         if (m_direction == CardinalDirections.CARDINAL_N)
         {
@@ -82,6 +82,7 @@ public class AbstractCharacter : MonoBehaviour
         {
             m_renderer.sprite = m_leftSprite;
         }
+        
     }
 
     public void IsDamaged(int damage)
