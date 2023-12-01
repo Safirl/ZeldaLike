@@ -11,7 +11,7 @@ public class TypeOfEnemyToSpawn
 }
 
 [System.Serializable]
-public class Wave2
+public class Wave
 {
     public string waveName;
     public TypeOfEnemyToSpawn[] TypeOfEnemyToSpawn;
@@ -21,10 +21,10 @@ public class Wave2
 public class Level
 {
     public string levelName;
-    public Wave2[] waves;
+    public Wave[] waves;
 }
 
-public class Gamev2Manager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public Level[] levels;
     public Transform[] spawnPoints;
@@ -102,7 +102,7 @@ public class Gamev2Manager : MonoBehaviour
 
     public void LevelWinCondition()
     {
-        // Refacto: code pas dynamique
+        // Todo : refacto car code pas dynamique
         if (currentLevel == 1 && canWin && currentWave == levels[0].waves.Length && GetEnemiesAlive())
         {
             Debug.Log("GAGNER!");

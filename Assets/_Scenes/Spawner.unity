@@ -22740,7 +22740,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 963882534}
-  - component: {fileID: 963882535}
   - component: {fileID: 963882536}
   - component: {fileID: 963882537}
   m_Layer: 0
@@ -22771,42 +22770,6 @@ Transform:
   - {fileID: 2071055815}
   m_Father: {fileID: 489911739}
   m_LocalEulerAnglesHint: {x: 0, y: -16.849, z: 0}
---- !u!114 &963882535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963882533}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e54a8a0eecd47c9bfa80d7ba282b68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - waveName: 'Wave 1 '
-    EnemyCount: 1
-    typeOfEnemies:
-    - {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e, type: 3}
-    spawnInterval: 1
-  - waveName: Wave 2
-    EnemyCount: 1
-    typeOfEnemies:
-    - {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e, type: 3}
-    spawnInterval: 1
-  - waveName: Wave 3
-    EnemyCount: 1
-    typeOfEnemies:
-    - {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e, type: 3}
-    spawnInterval: 1
-  spawnPoints:
-  - {fileID: 1831227754}
-  - {fileID: 101866769}
-  - {fileID: 1945674069}
-  - {fileID: 970828700}
-  - {fileID: 1807750121}
-  - {fileID: 2071055815}
-  eggs: 0
 --- !u!114 &963882536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22861,7 +22824,7 @@ MonoBehaviour:
         typeOfEnemies: {fileID: 1502969918981896, guid: 815f654b350eb4a928fde54474a9518e,
           type: 3}
   spawnPoints:
-  - {fileID: 1831227754}
+  - {fileID: 101866769}
   - {fileID: 2071055815}
 --- !u!114 &963882537
 MonoBehaviour:
@@ -22875,7 +22838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10b786c6205e8949abdd0d1e2562d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamev2Manager: {fileID: 963882536}
+  gameManager: {fileID: 963882536}
 --- !u!1 &970828699
 GameObject:
   m_ObjectHideFlags: 0
@@ -23089,7 +23052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1375410053
 MonoBehaviour:
   m_ObjectHideFlags: 0
