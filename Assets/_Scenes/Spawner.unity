@@ -1843,14 +1843,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213970bba2917114b9dedaf0d75211f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 0
+  damage: 0
+  attackSpeed: 0
   m_speed: 1
   m_frontSprite: {fileID: 21300000, guid: 4d1812406f3cf724d9bf26e4afc9ef77, type: 3}
   m_leftSprite: {fileID: 21300006, guid: 4d1812406f3cf724d9bf26e4afc9ef77, type: 3}
   m_rightSprite: {fileID: 21300002, guid: 4d1812406f3cf724d9bf26e4afc9ef77, type: 3}
   m_backSprite: {fileID: 21300004, guid: 4d1812406f3cf724d9bf26e4afc9ef77, type: 3}
-  m_fireBall: {fileID: 1502969918981896, guid: dd8b7b33984359b49a25a7c46d305262, type: 3}
   m_map: {fileID: 1634910905}
+  m_base: {fileID: 0}
   m_dialogDisplayer: {fileID: 92778327}
+  SwordPivot: {fileID: 0}
+  Sword: {fileID: 0}
 --- !u!1 &286368726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97846e3f08b64d4f9a5231629c7842d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objectToFollow: {fileID: 274949966}
+  target: {fileID: 274949970}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

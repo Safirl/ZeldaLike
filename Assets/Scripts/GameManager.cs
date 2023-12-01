@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public int GetNumberEnemiesAlive()
     {
-        numberEnemiesAlive = GameObject.FindGameObjectsWithTag("EnemyWave").Length;
+        numberEnemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
         return numberEnemiesAlive;
     }
 
