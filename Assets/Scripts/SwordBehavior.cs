@@ -8,7 +8,6 @@ public class SwordBehavior : MonoBehaviour
 {
     [SerializeField] private PlayerBehavior m_player;
     [SerializeField] private AllyBehavior m_ally;
-    /*public AbstractAI enemyBehavior;*/
 
     // Start is called before the first frame update
     void Start()
