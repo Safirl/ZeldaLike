@@ -10,9 +10,9 @@ using UnityEngine;
 
 public class PlayerBehavior : AbstractCharacter
 {
-
     public GameObject m_map = null;
     public GameObject m_base = null;
+    public DropdownAllyCount dropdownAllyCount;
     public DialogManager m_dialogDisplayer;
     private GameObject lastEnnemyTouched = null;
     [SerializeField] private GameObject SwordPivot = null;
@@ -20,9 +20,6 @@ public class PlayerBehavior : AbstractCharacter
     private float countdown = 0f;
     private bool attacking;
     private float cooldown = 0f;
-
-
-
     private Dialog m_closestNPCDialog;
 
     protected override void Awake()
@@ -93,6 +90,7 @@ public class PlayerBehavior : AbstractCharacter
         // or desactivated if already on screen
         if (Input.GetKeyDown(KeyCode.M))
         {
+            dropdownAllyCount.UpdateDropdownOptions();
             m_map.SetActive(!m_map.activeSelf);
         }
 
