@@ -61,7 +61,7 @@ public class AbstractCharacter : MonoBehaviour
     protected virtual void Update()
     {
         timer += Time.deltaTime;
-        PositionRegardingPlayer();
+       
     }
 
     protected void ChangeSpriteToMatchDirection()
@@ -103,8 +103,9 @@ public class AbstractCharacter : MonoBehaviour
 
 
     }
+}
 
-    public virtual void PositionRegardingPlayer()
+    /*public virtual void PositionRegardingPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
@@ -125,6 +126,6 @@ public class AbstractCharacter : MonoBehaviour
             }
         }
     }
-}
+}*/
 
 

@@ -43,6 +43,7 @@ public class RessourceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        text.text = "Number of eggs : " + coins;
+
     }
 }

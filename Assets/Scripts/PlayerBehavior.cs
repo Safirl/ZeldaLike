@@ -22,7 +22,7 @@ public class PlayerBehavior : AbstractCharacter
     private float cooldown = 0f;
 
 
-
+    private MerchantBehavior merchantBehavior;
     private Dialog m_closestNPCDialog;
 
     protected override void Awake()
@@ -120,11 +120,13 @@ public class PlayerBehavior : AbstractCharacter
             {
                 m_dialogDisplayer.SetDialog(m_closestNPCDialog.GetDialog());
             }
-
+            else if (merchantBehavior != null)
+            {
+                merchantBehavior.SellSoldiers();
+            }
 
             else if (cooldown >= 0.5f)
             {
-                Debug.Log("attack");
                 Attack();
                 attacking = true;
                 cooldown = 0f;
@@ -149,10 +151,6 @@ public class PlayerBehavior : AbstractCharacter
         countdown = timer;
     }
 
-    public override void PositionRegardingPlayer()
-    {
-        
-    }
 
     public override void isDead()
     {
@@ -186,6 +184,10 @@ public class PlayerBehavior : AbstractCharacter
             lastEnnemyTouched = collision.gameObject;
             Debug.Log(lastEnnemyTouched.name.ToString());
         }
+        else if (collision.tag == "Merchant")
+        {
+            merchantBehavior = collision.GetComponent<MerchantBehavior>();
+        }
     }
 
     // This is automatically called by Unity when the gameObject (here the player)
@@ -207,6 +209,10 @@ public class PlayerBehavior : AbstractCharacter
         {
             Debug.Log(lastEnnemyTouched.name.ToString() + " is not selected");
             lastEnnemyTouched = null;
+        }
+        else if (collision.tag == "Merchant")
+        {
+            merchantBehavior = null;
         }
     }
 }
