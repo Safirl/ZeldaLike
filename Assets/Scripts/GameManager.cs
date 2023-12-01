@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnPoints;
     private int numberEnemiesAlive = 0;
     private bool enemiesAlive;
+    private int numberAlliesAlive = 0;
     private int currentLevel = 1;
     private int currentWave = 0;
     private bool canWin = false;
@@ -55,6 +56,11 @@ public class GameManager : MonoBehaviour
     {
         numberEnemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
         return numberEnemiesAlive;
+    }
+    public int GetNumberAlliesAlive()
+    {
+        numberAlliesAlive = GameObject.FindGameObjectsWithTag("Ally").Length;
+        return numberAlliesAlive;
     }
 
     public int GetCurrentLevel()

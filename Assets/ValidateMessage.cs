@@ -9,17 +9,13 @@ public class ValidateMessage : MonoBehaviour
     [SerializeField] GameObject messagePrefab = null;
     GameObject player = null;
     [SerializeField] GameObject worlds = null;
+    [SerializeField] public MessageManager messageManager;
+    [SerializeField] private Dropdown dropdown;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Validate()
@@ -36,5 +32,7 @@ public class ValidateMessage : MonoBehaviour
                 newMessage.transform.parent = currentChild;
             }
         }
-    } 
+
+        StartCoroutine(messageManager.UpdateMessagesWithPHP(message.text, int.Parse(dropdown.options[dropdown.value].text), "Ally"));
+    }
 }
