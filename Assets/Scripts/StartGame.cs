@@ -20,6 +20,6 @@ public class StartGame : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("BuildMap");
     }
 }
