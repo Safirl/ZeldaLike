@@ -16,10 +16,13 @@ public class Dialog : MonoBehaviour {
         return m_dialogWithPlayer;
     }
 
-    public void SetOneLineDialog(string message)
+    public void Clear()
     {
         m_dialogWithPlayer.Clear();
+    }
 
+    public void SetOneLineDialog(string message)
+    {
         DialogPage newPageToAdd;
         newPageToAdd.color = Color.black;
         newPageToAdd.text = message;
