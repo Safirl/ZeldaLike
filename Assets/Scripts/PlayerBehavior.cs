@@ -14,7 +14,6 @@ public class PlayerBehavior : AbstractCharacter
     public GameObject m_map = null;
     public GameObject m_base = null;
     public DropdownAllyCount dropdownAllyCount;
-    public DropdownAllyCount dropdownAllyCount;
     public DialogManager m_dialogDisplayer;
     private GameObject lastEnnemyTouched = null;
     [SerializeField] private GameObject SwordPivot = null;
