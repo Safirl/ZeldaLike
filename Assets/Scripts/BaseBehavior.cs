@@ -20,6 +20,5 @@ public class BaseBehavior : AbstractCharacter
     public override void isDead()
     {
         SceneManager.LoadScene("LoseScene");
-
     }
 }
