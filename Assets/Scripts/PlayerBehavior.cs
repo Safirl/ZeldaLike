@@ -23,6 +23,20 @@ public class PlayerBehavior : AbstractCharacter
     private float cooldown = 0f;
     [SerializeField] private float respawnTime = 3f;
 
+    //Get/SetManager--------------------------------
+
+    public float GetRespawnTime()
+    {
+        return respawnTime;
+    }
+    public void SetRespawnTime(float newRespawnTime)
+    {
+        respawnTime = newRespawnTime;
+    }
+
+
+    //Get/SetManager--------------------------------
+
 
     private MerchantBehavior merchantBehavior;
     private Dialog m_closestNPCDialog;
