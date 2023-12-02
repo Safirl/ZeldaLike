@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour {
 
 	public AudioSource m_soundStream;
 	public AudioSource m_musicStream;
+	public AudioClip chick;
 
 	void Awake() {
 		if (instance == null) {
