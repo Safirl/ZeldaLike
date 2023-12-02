@@ -22,18 +22,27 @@ public class EnemySwordBehavior : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            PlayerBehavior player = collision.GetComponent<PlayerBehavior>();
-            player.IsDamaged(m_parent.GetDamage());
+            if (m_parent.GetTarget() == collision.transform)
+            {
+                PlayerBehavior player = collision.GetComponent<PlayerBehavior>();
+                player.IsDamaged(m_parent.GetDamage());
+            }
         }
         if (collision.tag == "Ally")
         {
-            AllyBehavior ally = collision.GetComponent<AllyBehavior>();
-            ally.IsDamaged(m_parent.GetDamage());
+            if (m_parent.GetTarget() == collision.transform) 
+            {
+                AllyBehavior ally = collision.GetComponent<AllyBehavior>();
+                ally.IsDamaged(m_parent.GetDamage());
+            }
         }
         if (collision.tag == "PlayerBase")
         {
-            BaseBehavior PlayerBase = collision.GetComponent<BaseBehavior>();
-            PlayerBase.IsDamaged(m_parent.GetDamage());
+            if (m_parent.GetTarget() == collision.transform)
+            {
+                BaseBehavior PlayerBase = collision.GetComponent<BaseBehavior>();
+                PlayerBase.IsDamaged(m_parent.GetDamage());
+            }
         }
     }
 }
