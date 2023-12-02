@@ -786,6 +786,11 @@ PrefabInstance:
       propertyPath: m_dialogDisplayer
       value: 
       objectReference: {fileID: 824613332}
+    - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
+        type: 3}
+      propertyPath: ControlAlliesCollider
+      value: 
+      objectReference: {fileID: 862436361}
     - target: {fileID: 8602827844673426603, guid: eaa1810a33bf0a747b41067b68a0ffd2,
         type: 3}
       propertyPath: m_Name
@@ -794,8 +799,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8602827844673426603, guid: eaa1810a33bf0a747b41067b68a0ffd2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 862436361}
   m_SourcePrefab: {fileID: 100100000, guid: eaa1810a33bf0a747b41067b68a0ffd2, type: 3}
+--- !u!1 &342650302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8602827844673426603, guid: eaa1810a33bf0a747b41067b68a0ffd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 342650301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &360524386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,6 +1885,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 342650301}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &862436361
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342650302}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 53.08
 --- !u!1 &888920333
 GameObject:
   m_ObjectHideFlags: 0

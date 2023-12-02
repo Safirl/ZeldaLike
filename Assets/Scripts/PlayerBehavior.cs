@@ -22,6 +22,8 @@ public class PlayerBehavior : AbstractCharacter
     private bool attacking;
     private float cooldown = 0f;
     [SerializeField] private float respawnTime = 3f;
+    [SerializeField] private CircleCollider2D ControlAlliesCollider;
+    [SerializeField] private List<GameObject> alliesControlled;
 
     //Get/SetManager--------------------------------
 
@@ -120,6 +122,16 @@ public class PlayerBehavior : AbstractCharacter
             Application.Quit();
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            ControlAllies(true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            ControlAllies(false);
+        }
+
         // If a dialog is on screen, the player should not be updated
         // If the map is displayed, the player should not be updated
         if (m_dialogDisplayer.IsOnScreen() || m_map.activeSelf)
@@ -189,6 +201,36 @@ public class PlayerBehavior : AbstractCharacter
         {
             gameObject.SetActive(true);
         }
+    }
+
+    private void ControlAllies(bool selectAllies)
+    {
+        
+        if (selectAllies)
+        {
+            ControlAlliesCollider.enabled = true;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, ControlAlliesCollider.radius);
+            ControlAlliesCollider.enabled = false;
+
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.gameObject.tag == "Ally")
+                {
+                    alliesControlled.Add(collider.gameObject);
+                }
+            }
+        }
+
+        else
+        {
+            foreach (GameObject ally in alliesControlled)
+            {
+                if (ally != null)
+                    ally.gameObject.transform.position = transform.position;
+            }
+            alliesControlled.Clear();
+        }
+
     }
 
     // This is automatically called by Unity when the gameObject (here the player)
