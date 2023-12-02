@@ -26,6 +26,8 @@ public class PlayerBehavior : AbstractCharacter
     [SerializeField] private CircleCollider2D ControlAlliesCollider;
     [SerializeField] private List<GameObject> alliesControlled;
 
+    public AudioManager m_audioManager;
+
     //Get/SetManager--------------------------------
 
     public float GetRespawnTime()
@@ -48,6 +50,7 @@ public class PlayerBehavior : AbstractCharacter
     {
         base.Awake();
         m_closestNPCDialog = null;
+        m_audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // This update is called at a very precise and constant FPS, and
@@ -74,6 +77,7 @@ public class PlayerBehavior : AbstractCharacter
         Vector2 newPos = new Vector2(transform.position.x + horizontalOffset * m_speed,
                                      transform.position.y + verticalOffset * m_speed);
         m_rb2D.MovePosition(newPos);
+        m_audioManager.PlaySound(m_audioManager.walk);
 
         // Computes the player main direction (North, Sound, East, West)
         if (Mathf.Abs(horizontalOffset) > Mathf.Abs(verticalOffset))
