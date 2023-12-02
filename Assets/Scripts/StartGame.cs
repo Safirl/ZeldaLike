@@ -18,8 +18,13 @@ public class StartGame : MonoBehaviour
         
     }
 
-    public void startGame()
+
+    public void startGame(bool lose)
     {
-        SceneManager.LoadScene("BuildMap");
+        if (lose)
+            SceneManager.LoadScene("HomeScene");
+        else
+            SceneManager.LoadScene("BuildMap");
+
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseBehavior : AbstractCharacter
 {
@@ -14,5 +15,11 @@ public class BaseBehavior : AbstractCharacter
     protected override void  Update()
     {
         base.Update();
+    }
+
+    public override void isDead()
+    {
+        SceneManager.LoadScene("LoseScene");
+
     }
 }
