@@ -29,11 +29,15 @@ public class SwordBehavior : MonoBehaviour
             {
                 EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
                 enemy.IsDamaged(m_player.GetDamage());
+                
             }
             else if (m_ally != null)
             {
-                EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
-                enemy.IsDamaged(m_ally.GetDamage());
+                if (m_ally.GetTarget() == collision.transform)
+                {
+                    EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
+                    enemy.IsDamaged(m_ally.GetDamage());
+                }
             }
 
         }
