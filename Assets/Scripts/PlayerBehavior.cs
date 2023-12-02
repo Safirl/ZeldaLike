@@ -17,9 +17,25 @@ public class PlayerBehavior : AbstractCharacter
     private GameObject lastEnnemyTouched = null;
     [SerializeField] private GameObject SwordPivot = null;
     [SerializeField] private GameObject Sword = null;
+    private GameObject PlayerBase;
     private float countdown = 0f;
     private bool attacking;
     private float cooldown = 0f;
+    [SerializeField] private float respawnTime = 3f;
+
+    //Get/SetManager--------------------------------
+
+    public float GetRespawnTime()
+    {
+        return respawnTime;
+    }
+    public void SetRespawnTime(float newRespawnTime)
+    {
+        respawnTime = newRespawnTime;
+    }
+
+
+    //Get/SetManager--------------------------------
 
 
     private MerchantBehavior merchantBehavior;
@@ -89,6 +105,9 @@ public class PlayerBehavior : AbstractCharacter
     {
         base.Update();
         cooldown += Time.deltaTime;
+        respawnTime -= Time.deltaTime;
+
+
         // If the player presses M, the map will be activated if not on screen
         // or desactivated if already on screen
         if (Input.GetKeyDown(KeyCode.M))
@@ -154,8 +173,22 @@ public class PlayerBehavior : AbstractCharacter
 
     public override void isDead()
     {
+        PlayerBase = GameObject.FindGameObjectWithTag("PlayerBase");
+        if (PlayerBase != null)
+        {
+            respawnTime = 3f;
+            gameObject.SetActive(false);
+            transform.position = PlayerBase.transform.position;
+        }
+    }
 
-        base.isDead();
+    private void Respawn()
+    {
+        Debug.Log(respawnTime);
+        if (respawnTime <= 0f) 
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     // This is automatically called by Unity when the gameObject (here the player)
