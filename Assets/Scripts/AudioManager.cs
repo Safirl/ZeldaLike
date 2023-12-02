@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour {
 	[Header("AudioSource")] 
 	public AudioSource m_soundStream;
 	public AudioSource m_musicStream;
+	public AudioClip chick;
 
     [Header("Clip")]
 
