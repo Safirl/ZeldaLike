@@ -23,23 +23,25 @@ public class SwordBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.gameObject.layer == 6)
         {
-            if (m_player != null)
+            if (collision.transform.parent.gameObject.tag == "Enemy")
             {
-                EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
-                enemy.IsDamaged(m_player.GetDamage());
-                
-            }
-            else if (m_ally != null)
-            {
-                if (m_ally.GetTarget() == collision.transform)
+                if (m_player != null)
                 {
-                    EnemyBehavior enemy = collision.GetComponent<EnemyBehavior>();
-                    enemy.IsDamaged(m_ally.GetDamage());
-                }
-            }
 
+                    EnemyBehavior enemy = collision.transform.parent.gameObject.GetComponent<EnemyBehavior>();
+                    enemy.IsDamaged(m_player.GetDamage());
+
+                }
+                else if (m_ally != null)
+                {
+                    EnemyBehavior enemy = collision.transform.parent.gameObject.GetComponent<EnemyBehavior>();
+                    enemy.IsDamaged(m_ally.GetDamage());
+                    
+                }
+
+            }
         }
     } 
 }
