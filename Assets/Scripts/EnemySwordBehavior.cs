@@ -20,28 +20,26 @@ public class EnemySwordBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.layer == 6)
         {
-            if (m_parent.GetTarget() == collision.transform)
+            if (collision.transform.parent.gameObject.tag == "Player")
             {
-                PlayerBehavior player = collision.GetComponent<PlayerBehavior>();
-                player.IsDamaged(m_parent.GetDamage());
+                {
+                    PlayerBehavior player = collision.transform.parent.gameObject.GetComponent<PlayerBehavior>();
+                    player.IsDamaged(m_parent.GetDamage());
+                }
             }
-        }
-        if (collision.tag == "Ally")
-        {
-            if (m_parent.GetTarget() == collision.transform) 
-            {
-                AllyBehavior ally = collision.GetComponent<AllyBehavior>();
-                ally.IsDamaged(m_parent.GetDamage());
+            if (collision.transform.parent.gameObject.tag == "Ally")
+            {               
+                    AllyBehavior ally = collision.transform.parent.gameObject.GetComponent<AllyBehavior>();
+                    ally.IsDamaged(m_parent.GetDamage());
             }
-        }
-        if (collision.tag == "PlayerBase")
-        {
-            if (m_parent.GetTarget() == collision.transform)
+            if (collision.transform.parent.gameObject.tag == "PlayerBase")
             {
-                BaseBehavior PlayerBase = collision.GetComponent<BaseBehavior>();
+              
+                BaseBehavior PlayerBase = collision.transform.parent.gameObject.GetComponent<BaseBehavior>();
                 PlayerBase.IsDamaged(m_parent.GetDamage());
+              
             }
         }
     }

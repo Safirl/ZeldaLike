@@ -6,6 +6,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerBehavior : AbstractCharacter
@@ -205,20 +206,19 @@ public class PlayerBehavior : AbstractCharacter
 
     private void ControlAllies(bool selectAllies)
     {
-        
         if (selectAllies)
         {
             ControlAlliesCollider.enabled = true;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, ControlAlliesCollider.radius);
-            ControlAlliesCollider.enabled = false;
 
             foreach (Collider2D collider in colliders)
             {
-                if (collider.gameObject.tag == "Ally")
+                if (collider.gameObject.layer == 6)
                 {
-                    alliesControlled.Add(collider.gameObject);
+                    alliesControlled.Add(collider.transform.parent.gameObject);
                 }
             }
+            ControlAlliesCollider.enabled = false;
         }
 
         else
