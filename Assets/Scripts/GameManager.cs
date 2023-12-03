@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private int currentLevel = 1;
     private int currentWave = 0;
     private bool canWin = false;
+    private bool hasWon = false;
 
     [Header("EndLogic")]
 
@@ -122,8 +123,8 @@ public class GameManager : MonoBehaviour
 
             /*currentWave = 0;
             currentLevel = 2;*/
-            StartCoroutine(EndLogic());
-            canWin = false;
+            if (!hasWon)
+                StartCoroutine(EndLogic());
 
         }
     }
@@ -135,9 +136,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EndLogic()
     {
+        hasWon = true;
         Camera.GetComponent<FollowGameObject>().SetTarget(Door.transform);
         yield return new WaitForSeconds(2f);
-        Door.GetComponent<DoorBehavior>().DoorController(true);
+        Door.GetComponent<DoorBehavior>().OpenDoor(true);
         yield return new WaitForSeconds(2f);
         Camera.GetComponent<FollowGameObject>().SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
         //SetTeleporterActive
