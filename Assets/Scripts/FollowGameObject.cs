@@ -15,7 +15,21 @@ public class FollowGameObject : MonoBehaviour {
 
 	[SerializeField] private Transform target;
 
-void Update()
+    //Getter ----------------------
+
+    public Transform GetTarget()
+    {
+		return target;
+    }
+
+	public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
+
+    //Getter ----------------------
+
+    void Update()
 	{
 		if (target != null)
 		{

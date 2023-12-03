@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
     private int currentWave = 0;
     private bool canWin = false;
 
+    [Header("EndLogic")]
+
+    [SerializeField] GameObject Door;
+    [SerializeField] GameObject Camera;
+
 
     //-------------------------------------------//
     //---------------Getter/Setter---------------//
@@ -113,9 +118,23 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("GAGNER!");
 
-            currentWave = 0;
-            currentLevel = 2;
+            /*currentWave = 0;
+            currentLevel = 2;*/
+            StartCoroutine(EndLogic());
+            canWin = false;
+
         }
+    }
+
+    IEnumerator EndLogic()
+    {
+        Camera.GetComponent<FollowGameObject>().SetTarget(Door.transform);
+        yield return new WaitForSeconds(2f);
+        Door.GetComponent<DoorBehavior>().DoorController(true);
+        yield return new WaitForSeconds(2f);
+        Camera.GetComponent<FollowGameObject>().SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
+        //SetTeleporterActive
+
     }
 
 
