@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BaseBehavior : AbstractCharacter
 {
+    [SerializeField] GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,6 @@ public class BaseBehavior : AbstractCharacter
 
     public override void isDead()
     {
-        SceneManager.LoadScene("LoseScene");
+        gameManager.loseLogic();
     }
 }

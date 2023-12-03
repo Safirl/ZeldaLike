@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class TypeOfEnemyToSpawn
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject Door;
     [SerializeField] GameObject Camera;
+    [SerializeField] GameObject PlayerBase;
 
 
     //-------------------------------------------//
@@ -126,6 +128,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void loseLogic()
+    {
+        StartCoroutine(DeathCinematic());
+    }
+
     IEnumerator EndLogic()
     {
         Camera.GetComponent<FollowGameObject>().SetTarget(Door.transform);
@@ -137,5 +144,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    IEnumerator DeathCinematic()
+    {
+        Camera.GetComponent<FollowGameObject>().SetTarget(PlayerBase.transform);
+        PlayerBase.gameObject.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("LoseScene");
+
+    }
 
 }
