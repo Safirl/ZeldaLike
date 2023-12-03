@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField] private PlayerBehavior playerBehavior;
     private Wave currentWave;
     public GameManager gameManager;
 
@@ -26,7 +27,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        if (Input.GetKey(KeyCode.F) && gameManager.GetEnemiesAlive())
+        if (Input.GetKey(KeyCode.F) && gameManager.GetEnemiesAlive() && !playerBehavior.GetIsWriting())
         {
             gameManager.SetCanWin(false);
             gameManager.IncrementsCurrentWave();
