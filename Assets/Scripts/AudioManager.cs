@@ -14,28 +14,18 @@ public class AudioManager : MonoBehaviour {
 	public AudioSource m_soundStream;
 	public AudioSource m_musicStream;
 
-    [Header("Clips")]
+    [Header("Clip")]
 
-    public AudioClip chick;
-	public AudioClip water;
-	public AudioClip sword; 
-	public AudioClip money; 
-	public AudioClip door; 
-	public AudioClip renard; 
-	public AudioClip poule;
-	public AudioClip calmMusic;
-	public AudioClip warMusic;
-	public AudioClip axe;
-	public AudioClip walk;
+    public AudioClip m_clip;
 
-	void Awake() {
+/*	void Awake() {
 		if (instance == null) {
 			instance = this;
             DontDestroyOnLoad(gameObject);
         } else {
 			Destroy (gameObject);
 		}
-	}
+	}*/
 
 	public void PlaySound(AudioClip soundClipToPlay, float volume = 1.0f, float pitch = 1.0f) {
 		m_soundStream.pitch = pitch;
