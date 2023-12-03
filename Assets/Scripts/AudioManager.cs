@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour {
     [Header("Clip")]
 
     public AudioClip m_clip;
+    public AudioClip m_clip1;
+    public AudioClip m_clip2;
 
 /*	void Awake() {
 		if (instance == null) {
@@ -31,7 +33,7 @@ public class AudioManager : MonoBehaviour {
 		m_soundStream.pitch = pitch;
 		m_soundStream.volume = volume;
 		m_soundStream.clip = soundClipToPlay;
-		m_soundStream.Play ();
+		m_soundStream.Play();
 	}
 
     public void StopSound()
