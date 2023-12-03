@@ -1,6 +1,6 @@
 ﻿/* Author : Raphaël Marczak - 2018/2020, for MIAMI Teaching (IUT Tarbes) and MMI Teaching (IUT Bordeaux Montaigne)
- *
- * This work is licensed under the CC0 License.
+ * 
+ * This work is licensed under the CC0 License. 
  * Reworked by Loic et Matthieu
  */
 
@@ -182,7 +182,7 @@ public class PlayerBehavior : AbstractCharacter
         transform.position = PlayerTransform.position;
     }
 
-    public void Attack()
+    public void Attack() 
     {
         PivotBehavior Swordpivot = SwordPivot.GetComponent<PivotBehavior>();
         Swordpivot.SetSwordPosition(GetDirection());
@@ -205,7 +205,7 @@ public class PlayerBehavior : AbstractCharacter
     private void Respawn()
     {
         Debug.Log(respawnTime);
-        if (respawnTime <= 0f)
+        if (respawnTime <= 0f) 
         {
             gameObject.SetActive(true);
         }

@@ -20,9 +20,7 @@ public class AudioManager : MonoBehaviour {
     public AudioClip m_clip1;
     public AudioClip m_clip2;
 
-    [Header("Clip")]
-
-    public AudioClip m_clip;
+ 
 
 /*	void Awake() {
 		if (instance == null) {
