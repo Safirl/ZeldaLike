@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class RessourceManager : MonoBehaviour
 {
 
-    private int coins = 10;
+    private int coins = 20;
     [SerializeField] private Text text;
     // Start is called before the first frame update
 
