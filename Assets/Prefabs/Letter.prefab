@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 35679569315228540}
   - component: {fileID: 1555697925315771440}
   m_Layer: 0
-  m_Name: MessageTemplate
+  m_Name: Letter
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
