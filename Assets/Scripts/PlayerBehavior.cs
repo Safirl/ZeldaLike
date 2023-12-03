@@ -25,6 +25,7 @@ public class PlayerBehavior : AbstractCharacter
     [SerializeField] private float respawnTime = 3f;
     [SerializeField] private CircleCollider2D ControlAlliesCollider;
     [SerializeField] private List<GameObject> alliesControlled;
+    [SerializeField] private AudioManager m_audioManager;
 
     //public AudioManager m_audioManager;
 
