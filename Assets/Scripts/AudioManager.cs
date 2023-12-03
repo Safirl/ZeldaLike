@@ -1,7 +1,7 @@
 ﻿/* Author : Raphaël Marczak - 2018/2020, for MIAMI Teaching (IUT Tarbes) and MMI Teaching (IUT Bordeaux Montaigne)
- * 
- * This work is licensed under the CC0 License. 
- * 
+ *
+ * This work is licensed under the CC0 License.
+ *
  */
 
 using UnityEngine;
@@ -10,23 +10,13 @@ using UnityEditorInternal;
 
 public class AudioManager : MonoBehaviour {
 	public static AudioManager instance = null;
-	[Header("AudioSource")] 
+	[Header("AudioSource")]
 	public AudioSource m_soundStream;
 	public AudioSource m_musicStream;
 
-    [Header("Clips")]
+    [Header("Clip")]
 
-    public AudioClip chick;
-	public AudioClip water;
-	public AudioClip sword; 
-	public AudioClip money; 
-	public AudioClip door; 
-	public AudioClip renard; 
-	public AudioClip poule;
-	public AudioClip calmMusic;
-	public AudioClip warMusic;
-	public AudioClip axe;
-	public AudioClip walk;
+    public AudioClip m_clip;
 
     [Header("Clip")]
 
