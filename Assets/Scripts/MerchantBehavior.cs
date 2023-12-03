@@ -36,7 +36,7 @@ public class MerchantBehavior : MonoBehaviour
                 Instantiate(Ally, transform.position, transform.rotation);
                 }
                 ressourceManager.SubstractCoins(10);
-                Debug.Log(ressourceManager.GetCoins());
+                //Debug.Log(ressourceManager.GetCoins());
                 DialogPanel.SetActive(false);
                 canBuy = false;
             }
