@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d131409eca7ef41468bef643577ca6ab, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 87773c8f52274e34bb78a5d406469677, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.11
   m_Pitch: 1
@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7397291194043722250
 Transform:
   m_ObjectHideFlags: 0
@@ -176,17 +176,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_soundStream: {fileID: 1133554411429836252}
   m_musicStream: {fileID: 7879373090195473471}
-  chick: {fileID: 8300000, guid: 77a7591af1c790141a1e275c85e827a5, type: 3}
-  water: {fileID: 8300000, guid: 4fd3b8f93a78eaf47bfb038b5d6ada42, type: 3}
-  sword: {fileID: 8300000, guid: db55500d833ecc5498e67928e32bed66, type: 3}
-  money: {fileID: 8300000, guid: 99bf79201aa2474419cfe83457c8f5f8, type: 3}
-  door: {fileID: 8300000, guid: 9a04e6c80c530ee4e9fc4bddfe5857a5, type: 3}
-  renard: {fileID: 8300000, guid: 88f8258ab2f5c3b4e907a7e46cf86513, type: 3}
-  poule: {fileID: 8300000, guid: c48affd8e231e9947846bba61dde6597, type: 3}
-  calmMusic: {fileID: 0}
-  warMusic: {fileID: 0}
-  axe: {fileID: 8300000, guid: 7a209a66249e60b42852a6e5a98b0afd, type: 3}
-  walk: {fileID: 8300000, guid: 8700a78b5078d754cad1345dcde46951, type: 3}
+  m_clip: {fileID: 0}
+  m_clip1: {fileID: 0}
+  m_clip2: {fileID: 0}
 --- !u!1 &6683313864896567745
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2949033380644337971
 Transform:
   m_ObjectHideFlags: 0
