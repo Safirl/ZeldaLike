@@ -13,7 +13,20 @@ public class AudioManager : MonoBehaviour {
 	[Header("AudioSource")] 
 	public AudioSource m_soundStream;
 	public AudioSource m_musicStream;
-	public AudioClip chick;
+
+    [Header("Clips")]
+
+    public AudioClip chick;
+	public AudioClip water;
+	public AudioClip sword; 
+	public AudioClip money; 
+	public AudioClip door; 
+	public AudioClip renard; 
+	public AudioClip poule;
+	public AudioClip calmMusic;
+	public AudioClip warMusic;
+	public AudioClip axe;
+	public AudioClip walk;
 
     [Header("Clip")]
 
