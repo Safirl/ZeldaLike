@@ -27,8 +27,6 @@ public class PlayerBehavior : AbstractCharacter
     [SerializeField] private List<GameObject> alliesControlled;
     private bool isWriting = false;
 
-    [SerializeField] GameManager m_gameManager;
-
     public float regeneration = 3f;
 
     //Get/SetManager--------------------------------

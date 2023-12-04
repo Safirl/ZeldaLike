@@ -22,4 +22,6 @@ public class BaseBehavior : AbstractCharacter
     {
         gameManager.loseLogic();
     }
+
+
 }

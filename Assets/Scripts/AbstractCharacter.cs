@@ -31,6 +31,7 @@ public class AbstractCharacter : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] protected AudioManager m_audioManager;
+    [SerializeField] protected GameManager m_gameManager;
 
     //Get/SetManager--------------------------------
     public CardinalDirections GetDirection()
@@ -90,6 +91,10 @@ public class AbstractCharacter : MonoBehaviour
         if (gameObject.GetComponent<AudioManager>() != null)
         {
             m_audioManager = gameObject.GetComponent<AudioManager>();
+        }
+        if (FindObjectOfType<GameManager>() != null)
+        {
+            m_gameManager = FindObjectOfType<GameManager>();
         }
     }
 

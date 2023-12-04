@@ -28,6 +28,7 @@ public class PlayMusic : MonoBehaviour
     void Update()
     {
         ChangeMusic();
+        gameObject.GetComponent<AudioSource>().volume = 0.1f;
     }
 
     public void ChangeMusic()
@@ -37,7 +38,7 @@ public class PlayMusic : MonoBehaviour
         {
             if (isWarMusicPlaying)
             {
-                m_audioManager.PlayMusicChill(m_audioManager.m_clip, true, 0.5f);
+                m_audioManager.PlayMusicChill(m_audioManager.m_clip, true);
                 isWarMusicPlaying = false;
             }
 
@@ -46,7 +47,7 @@ public class PlayMusic : MonoBehaviour
         {
             if (!isWarMusicPlaying)
             {
-                m_audioManager.PlayMusicWar(m_audioManager.m_clip1, true, 0.5f);
+                m_audioManager.PlayMusicWar(m_audioManager.m_clip1, true);
                 isWarMusicPlaying = true;
 
             }

@@ -29,7 +29,7 @@ public class WaveManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F) && gameManager.GetEnemiesAlive() && !playerBehavior.GetIsWriting())
         {
-            RegenerateAlliesLives();
+            //RegenerateAlliesLives();
 
             gameManager.SetCanWin(false);
             gameManager.IncrementsCurrentWave();
@@ -49,11 +49,11 @@ public class WaveManager : MonoBehaviour
         Instantiate(typeOfEnemy, new Vector3 (randomPoint.position.x, randomPoint.position.y, 0), Quaternion.identity);
     }
 
-    private void RegenerateAlliesLives()
+    /*private void RegenerateAlliesLives()
     {
         foreach (GameObject ally in GameObject.FindGameObjectsWithTag("Ally"))
         {
             ally.GetComponent<AllyBehavior>().SetLivesToMaximum();
         }
-    }
+    }*/
 }
