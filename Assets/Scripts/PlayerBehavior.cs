@@ -209,6 +209,7 @@ public class PlayerBehavior : AbstractCharacter
         {
             respawnTime = 3f;
             gameObject.SetActive(false);
+            
             transform.position = PlayerBase.transform.position;
         }
     }
