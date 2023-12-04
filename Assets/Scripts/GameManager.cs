@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     private int currentWave = 0;
     private bool canWin = false;
     private bool hasWon = false;
+    private int nextWaveNumber = 1;
 
     [Header("EndLogic")]
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject Camera;
     [SerializeField] GameObject PlayerBase;
     [SerializeField] GameObject Player;
+    [SerializeField] RessourceManager RessourceManager;
 
 
 
@@ -111,11 +113,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+
+        nextWaveNumber = currentWave + 1;
     }
 
     void Update()
     {
         LevelWinCondition();
+
+        // mecanique coins
+        if (GetEnemiesAlive() && nextWaveNumber == currentWave)
+        {
+            RessourceManager.AddCoins(10);
+            nextWaveNumber++;
+        }
     }
 
     public void LevelWinCondition()
