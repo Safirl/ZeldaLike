@@ -13,5 +13,10 @@ public class AllyBehavior : AbstractAI
         base.Start();
     }
 
+    public override void IsDamaged(int damage)
+    {
+        base.IsDamaged(damage);
+        m_audioManager.PlaySound(m_audioManager.m_clip, 0.5f);
 
+    }
 }

@@ -26,7 +26,6 @@ public class PlayerBehavior : AbstractCharacter
     [SerializeField] private CircleCollider2D ControlAlliesCollider;
     [SerializeField] private List<GameObject> alliesControlled;
     private bool isWriting = false;
-    [SerializeField] private AudioManager m_audioManager;
 
     [SerializeField] GameManager m_gameManager;
 

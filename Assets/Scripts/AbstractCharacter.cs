@@ -29,6 +29,9 @@ public class AbstractCharacter : MonoBehaviour
 
     protected float timer = 0f;
 
+    [Header("Audio")]
+    [SerializeField] protected AudioManager m_audioManager;
+
     //Get/SetManager--------------------------------
     public CardinalDirections GetDirection()
     {
@@ -84,6 +87,10 @@ public class AbstractCharacter : MonoBehaviour
         {
             m_renderer = gameObject.GetComponent<SpriteRenderer>();
         }
+        if (gameObject.GetComponent<AudioManager>() != null)
+        {
+            m_audioManager = gameObject.GetComponent<AudioManager>();
+        }
     }
 
     protected virtual void Update()
@@ -122,9 +129,6 @@ public class AbstractCharacter : MonoBehaviour
         if (lives < 1)
         {
             isDead();
-            //todo
-            //envoie fonction isDead(this)
-            //this == base --> Fin du jeu.
         }
     }
 
