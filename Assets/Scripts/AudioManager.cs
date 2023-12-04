@@ -12,7 +12,8 @@ public class AudioManager : MonoBehaviour {
 	public static AudioManager instance = null;
 	[Header("AudioSource")]
 	public AudioSource m_soundStream;
-	public AudioSource m_musicStream;
+	public AudioSource m_musicStreamChill;
+    public AudioSource m_audioStreamWar;
 
     [Header("Clip")]
 
@@ -43,16 +44,31 @@ public class AudioManager : MonoBehaviour {
         m_soundStream.Stop();
     }
 
-    public void PlayMusic(AudioClip musicClipToPlay, bool mustLoop, float volume = 1.0f, float pitch = 1.0f)
+    public void PlayMusicChill(AudioClip musicClipToPlay, bool mustLoop, float volume = 1.0f, float pitch = 1.0f)
     {
-        m_musicStream.pitch = pitch;
-        m_musicStream.volume = volume;
-        m_musicStream.loop = mustLoop;
-        m_musicStream.clip = musicClipToPlay;
-        m_musicStream.Play();
+        m_musicStreamChill.pitch = pitch;
+        m_musicStreamChill.volume = volume;
+        m_musicStreamChill.loop = mustLoop;
+        m_musicStreamChill.clip = musicClipToPlay;
+        m_musicStreamChill.Play();
     }
 
-    public void StopMusic() {
-		m_musicStream.Stop();
+    public void StopMusicChill() {
+        m_musicStreamChill.Stop();
 	}
+    public void PlayMusicWar(AudioClip musicClipToPlay, bool mustLoop, float volume = 1.0f, float pitch = 1.0f)
+    {
+        m_audioStreamWar.pitch = pitch;
+        m_audioStreamWar.volume = volume;
+        m_audioStreamWar.loop = mustLoop;
+        m_audioStreamWar.clip = musicClipToPlay;
+        m_audioStreamWar.Play();
+    }
+
+    public void StopMusicWar()
+    {
+        m_audioStreamWar.Stop();
+    }
+
 }
+
