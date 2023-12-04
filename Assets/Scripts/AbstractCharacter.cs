@@ -46,6 +46,29 @@ public class AbstractCharacter : MonoBehaviour
         damage = newDamage;
     }
 
+    public float Getlives()
+    {
+        return lives;
+    }
+    public void Setlives(float newLives)
+    {
+        lives = newLives;
+    }
+
+    public float GetMaxlives()
+    {
+        return maxLives;
+    }
+    public void SetMaxlives(float newMaxLives)
+    {
+        maxLives = newMaxLives;
+    }
+
+    public void SetLivesToMaximum()
+    {
+        lives = maxLives;
+    }
+
     //----------------------------------------------
 
     // Start is called before the first frame update

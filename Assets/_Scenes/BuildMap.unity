@@ -1872,6 +1872,16 @@ PrefabInstance:
       objectReference: {fileID: 162504478}
     - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
         type: 3}
+      propertyPath: m_base
+      value: 
+      objectReference: {fileID: 20152475}
+    - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
+        type: 3}
+      propertyPath: m_gameManager
+      value: 
+      objectReference: {fileID: 310205185}
+    - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
+        type: 3}
       propertyPath: dropdownAllyCount
       value: 
       objectReference: {fileID: 328272664}

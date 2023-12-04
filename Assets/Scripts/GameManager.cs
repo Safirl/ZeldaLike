@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject Door;
     [SerializeField] GameObject Camera;
     [SerializeField] GameObject PlayerBase;
+    [SerializeField] GameObject Player;
+
 
 
     //-------------------------------------------//
@@ -102,12 +104,14 @@ public class GameManager : MonoBehaviour
         canWin = newBool;
     }
 
-
     //--------------------------------------//
     //---------------Méthodes---------------//
     //--------------------------------------//
 
-    void Start(){}
+    void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void Update()
     {
@@ -153,6 +157,18 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("LoseScene");
 
+    }
+
+    IEnumerator RespawnPlayer()
+    {
+        yield return new WaitForSeconds(2f);
+        Player.gameObject.SetActive(true);
+        Player.GetComponent<PlayerBehavior>().SetLivesToMaximum();
+    }
+
+    public void StartRespawnCountDown()
+    {
+        StartCoroutine (RespawnPlayer());
     }
 
 }

@@ -28,6 +28,8 @@ public class PlayerBehavior : AbstractCharacter
     private bool isWriting = false;
     [SerializeField] private AudioManager m_audioManager;
 
+    [SerializeField] GameManager m_gameManager;
+
     //Get/SetManager--------------------------------
 
     public float GetRespawnTime()
@@ -207,19 +209,9 @@ public class PlayerBehavior : AbstractCharacter
         PlayerBase = GameObject.FindGameObjectWithTag("PlayerBase");
         if (PlayerBase != null)
         {
-            respawnTime = 3f;
             gameObject.SetActive(false);
-            
-            transform.position = PlayerBase.transform.position;
-        }
-    }
-
-    private void Respawn()
-    {
-        Debug.Log(respawnTime);
-        if (respawnTime <= 0f) 
-        {
-            gameObject.SetActive(true);
+            transform.position = new Vector3 (PlayerBase.transform.position.x, PlayerBase.transform.position.y - 10f, 0);
+            m_gameManager.StartRespawnCountDown();
         }
     }
 
