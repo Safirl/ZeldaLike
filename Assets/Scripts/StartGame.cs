@@ -27,4 +27,9 @@ public class StartGame : MonoBehaviour
             SceneManager.LoadScene("BuildMap");
 
     }
+    public void ShowCommands()
+    {
+        SceneManager.LoadScene("Commandes");
+    }
+
 }
