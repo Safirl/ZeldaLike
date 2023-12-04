@@ -232,6 +232,17 @@ public class PlayerBehavior : AbstractCharacter
                     alliesControlled.Add(collider.transform.parent.gameObject);
                 }
             }
+            foreach (GameObject ally in alliesControlled)
+            {
+                Color newColor;
+                if (ColorUtility.TryParseHtmlString("#FFBA6A", out newColor))
+                {
+                    if (ally.gameObject.tag != "Player")
+                    {
+                        ally.GetComponent<SpriteRenderer>().color = newColor;
+                    }
+                }
+            }
             ControlAlliesCollider.enabled = false;
         }
 
@@ -239,8 +250,15 @@ public class PlayerBehavior : AbstractCharacter
         {
             foreach (GameObject ally in alliesControlled)
             {
-                if (ally != null)
-                    ally.gameObject.transform.position = transform.position;
+                Color newColor;
+                if (ColorUtility.TryParseHtmlString("#FFFFFF", out newColor))
+                {
+                    if (ally != null)
+                    {
+                        ally.gameObject.transform.position = transform.position;
+                        ally.GetComponent<SpriteRenderer>().color = newColor;
+                    }
+                }
             }
             alliesControlled.Clear();
         }
