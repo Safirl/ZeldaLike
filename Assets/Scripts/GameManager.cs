@@ -49,8 +49,12 @@ public class GameManager : MonoBehaviour
     //-------------------------------------------//
     //---------------Getter/Setter---------------//
     //-------------------------------------------//
+    /// <summary>
+    /// return true si il n'y a pas d'ennemis.
+    /// </summary>
     public bool GetEnemiesAlive()
     {
+
         if (GetNumberEnemiesAlive() <= 0)
         {
             enemiesAlive = true;

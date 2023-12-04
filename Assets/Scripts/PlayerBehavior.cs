@@ -175,7 +175,7 @@ public class PlayerBehavior : AbstractCharacter
             {
                 m_dialogDisplayer.SetDialog(m_closestNPCDialog.GetDialog());
             }
-            else if (merchantBehavior != null)
+            else if (merchantBehavior != null && m_gameManager.GetEnemiesAlive())
             {
                 merchantBehavior.SellSoldiers();
             }
