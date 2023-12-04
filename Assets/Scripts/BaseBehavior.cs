@@ -16,6 +16,7 @@ public class BaseBehavior : AbstractCharacter
     protected override void  Update()
     {
         base.Update();
+        RegenerateAllyLive();
     }
 
     public override void isDead()

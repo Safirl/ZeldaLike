@@ -224,7 +224,7 @@ public class PlayerBehavior : AbstractCharacter
 
             foreach (Collider2D collider in colliders)
             {
-                if (collider.gameObject.layer == 6)
+                if (collider.gameObject.layer == 6 && collider.transform.parent.gameObject.tag != "Player" && collider.transform.parent.gameObject.tag != "PlayerBase")
                 {
                     alliesControlled.Add(collider.transform.parent.gameObject);
                 }
@@ -234,10 +234,7 @@ public class PlayerBehavior : AbstractCharacter
                 Color newColor;
                 if (ColorUtility.TryParseHtmlString("#FFBA6A", out newColor))
                 {
-                    if (ally.gameObject.tag != "Player")
-                    {
                         ally.GetComponent<SpriteRenderer>().color = newColor;
-                    }
                 }
             }
             ControlAlliesCollider.enabled = false;

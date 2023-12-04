@@ -143,6 +143,11 @@ public class AbstractCharacter : MonoBehaviour
 
 
     }
+    protected void RegenerateAllyLive()
+    {
+        if (m_gameManager.GetEnemiesAlive())
+            SetLivesToMaximum();
+    }
 }
 
     /*public virtual void PositionRegardingPlayer()
