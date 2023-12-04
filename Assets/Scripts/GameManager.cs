@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
         // mecanique coins
         if (GetEnemiesAlive() && nextWaveNumber == currentWave)
         {
-            RessourceManager.AddCoins(10);
+            RessourceManager.AddCoins(15);
             nextWaveNumber++;
         }
     }

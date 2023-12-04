@@ -64,7 +64,7 @@ public class MessageManager : MonoBehaviour
 
     public IEnumerator UpdateMessagesWithPHP(string playerMessage, int numberOfDefenders, string defendersNames)
     {
-        string insertNewMessage = host + "insertNewMessage.php?playermessage=" + playerMessage + "&numberOfDefenders=" + numberOfDefenders + "&defendersNames=" + defendersNames;
+        string insertNewMessage = host + "insertNewMessage.php?playerMessage=" + playerMessage + "&numberOfDefenders=" + numberOfDefenders + "&defendersNames=" + defendersNames;
 
         WWW updateMessagesRequest = new WWW(insertNewMessage);
         yield return updateMessagesRequest;

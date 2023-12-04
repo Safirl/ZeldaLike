@@ -32,4 +32,9 @@ public class StartGame : MonoBehaviour
         SceneManager.LoadScene("Commandes");
     }
 
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
 }
