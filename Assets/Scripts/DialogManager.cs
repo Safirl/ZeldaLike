@@ -58,6 +58,14 @@ public class DialogManager : MonoBehaviour {
         } else
         {
             this.gameObject.SetActive(false);
+
+            //Debug.Log(GameObject.FindGameObjectWithTag("NPC"));
+
+            //Debug.Log("ici");
+
+            // ----- enlever la lettre -----
+            GameObject letter = GameObject.FindGameObjectWithTag("NPC");
+            letter.SetActive(false);
         }
 
         // Removes the page when the player presses "space"
