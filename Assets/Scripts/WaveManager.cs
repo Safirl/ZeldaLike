@@ -44,6 +44,6 @@ public class WaveManager : MonoBehaviour
     private void SpawnEnemy(GameObject typeOfEnemy)
     {
         Transform randomPoint = gameManager.spawnPoints[Random.Range(0, gameManager.spawnPoints.Length)];
-        Instantiate(typeOfEnemy, randomPoint.position, Quaternion.identity);
+        Instantiate(typeOfEnemy, new Vector3 (randomPoint.position.x, randomPoint.position.y, 0), Quaternion.identity);
     }
 }
