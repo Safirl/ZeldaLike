@@ -25,9 +25,8 @@ public class PlayerBehavior : AbstractCharacter
     [SerializeField] private float respawnTime = 3f;
     [SerializeField] private CircleCollider2D ControlAlliesCollider;
     [SerializeField] private List<GameObject> alliesControlled;
+    private bool isWriting = false;
     [SerializeField] private AudioManager m_audioManager;
-
-    //public AudioManager m_audioManager;
 
     //Get/SetManager--------------------------------
 
@@ -38,6 +37,15 @@ public class PlayerBehavior : AbstractCharacter
     public void SetRespawnTime(float newRespawnTime)
     {
         respawnTime = newRespawnTime;
+    }
+
+    public void SetIsWriting(bool newBool)
+    {
+        isWriting = newBool;
+    }
+    public bool GetIsWriting()
+    {
+        return isWriting;
     }
 
 
@@ -116,28 +124,31 @@ public class PlayerBehavior : AbstractCharacter
         respawnTime -= Time.deltaTime;
 
 
-        // If the player presses M, the map will be activated if not on screen
-        // or desactivated if already on screen
-        if (Input.GetKeyDown(KeyCode.M))
+        if (!isWriting)
         {
-            dropdownAllyCount.UpdateDropdownOptions();
-            dropdownAllyCount.UpdateDropdownOptions();
-            m_map.SetActive(!m_map.activeSelf);
-        }
+            // If the player presses M, the map will be activated if not on screen
+            // or desactivated if already on screen
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                dropdownAllyCount.UpdateDropdownOptions();
+                dropdownAllyCount.UpdateDropdownOptions();
+                m_map.SetActive(!m_map.activeSelf);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            ControlAllies(true);
-        }
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                ControlAllies(true);
+            }
 
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            ControlAllies(false);
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                ControlAllies(false);
+            }
         }
 
         // If a dialog is on screen, the player should not be updated
@@ -153,7 +164,7 @@ public class PlayerBehavior : AbstractCharacter
         // - If there is a dialog ready to be displayed (i.e. the player is closed to a NPC)
         //   then a dialog is set to the dialogManager
         // - If not, then the player will shoot a fireball
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isWriting)
         {
             if (m_closestNPCDialog != null)
             {
