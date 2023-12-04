@@ -25,10 +25,4 @@ public class AllyBehavior : AbstractAI
         m_audioManager.PlaySound(m_audioManager.m_clip, 0.5f);
 
     }
-
-    private void RegenerateAllyLive()
-    {
-        if (m_gameManager.GetEnemiesAlive())
-            SetLivesToMaximum();
-    }
 }
