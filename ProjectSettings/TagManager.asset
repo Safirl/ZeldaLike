@@ -13,6 +13,7 @@ TagManager:
   - PlayerBase
   - Ally
   - Merchant
+  - Audio
   layers:
   - Default
   - TransparentFX

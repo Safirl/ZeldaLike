@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class TypeOfEnemyToSpawn
@@ -34,6 +35,13 @@ public class GameManager : MonoBehaviour
     private int currentLevel = 1;
     private int currentWave = 0;
     private bool canWin = false;
+    private bool hasWon = false;
+
+    [Header("EndLogic")]
+
+    [SerializeField] GameObject Door;
+    [SerializeField] GameObject Camera;
+    [SerializeField] GameObject PlayerBase;
 
 
     //-------------------------------------------//
@@ -113,10 +121,38 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("GAGNER!");
 
-            currentWave = 0;
-            currentLevel = 2;
+            /*currentWave = 0;
+            currentLevel = 2;*/
+            if (!hasWon)
+                StartCoroutine(EndLogic());
+
         }
     }
 
+    public void loseLogic()
+    {
+        StartCoroutine(DeathCinematic());
+    }
+
+    IEnumerator EndLogic()
+    {
+        hasWon = true;
+        Camera.GetComponent<FollowGameObject>().SetTarget(Door.transform);
+        yield return new WaitForSeconds(2f);
+        Door.GetComponent<DoorBehavior>().OpenDoor(true);
+        yield return new WaitForSeconds(2f);
+        Camera.GetComponent<FollowGameObject>().SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
+        //SetTeleporterActive
+
+    }
+
+    IEnumerator DeathCinematic()
+    {
+        Camera.GetComponent<FollowGameObject>().SetTarget(PlayerBase.transform);
+        PlayerBase.gameObject.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("LoseScene");
+
+    }
 
 }

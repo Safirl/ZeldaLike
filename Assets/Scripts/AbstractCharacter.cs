@@ -90,7 +90,7 @@ public class AbstractCharacter : MonoBehaviour
         
     }
 
-    public void IsDamaged(int damage)
+    public virtual void IsDamaged(int damage)
     {
         lives -= damage;
 

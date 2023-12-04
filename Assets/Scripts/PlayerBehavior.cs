@@ -26,6 +26,7 @@ public class PlayerBehavior : AbstractCharacter
     [SerializeField] private CircleCollider2D ControlAlliesCollider;
     [SerializeField] private List<GameObject> alliesControlled;
     private bool isWriting = false;
+    [SerializeField] private AudioManager m_audioManager;
 
     //Get/SetManager--------------------------------
 
@@ -58,6 +59,7 @@ public class PlayerBehavior : AbstractCharacter
     {
         base.Awake();
         m_closestNPCDialog = null;
+        //m_audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // This update is called at a very precise and constant FPS, and
@@ -84,6 +86,7 @@ public class PlayerBehavior : AbstractCharacter
         Vector2 newPos = new Vector2(transform.position.x + horizontalOffset * m_speed,
                                      transform.position.y + verticalOffset * m_speed);
         m_rb2D.MovePosition(newPos);
+        //m_audioManager.PlaySound(m_audioManager.walk);
 
         // Computes the player main direction (North, Sound, East, West)
         if (Mathf.Abs(horizontalOffset) > Mathf.Abs(verticalOffset))
@@ -246,6 +249,12 @@ public class PlayerBehavior : AbstractCharacter
             alliesControlled.Clear();
         }
 
+    }
+
+    public override void IsDamaged(int damage)
+    {
+        base.IsDamaged(damage);
+        m_audioManager.PlaySound(m_audioManager.m_clip2, 0.2f);
     }
 
     // This is automatically called by Unity when the gameObject (here the player)
