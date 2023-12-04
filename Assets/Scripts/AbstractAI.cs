@@ -172,19 +172,25 @@ public class AbstractAI : AbstractCharacter
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (TargetedType == other.tag)
-
+        if (other.gameObject.layer == 6)
         {
-            targetsReachable.Add(other.gameObject);
+            if (TargetedType == other.transform.parent.gameObject.tag)
+
+            {
+                targetsReachable.Add(other.transform.parent.gameObject);
+            }
         }
     }
 
     protected virtual void OnTriggerExit2D(Collider2D other)
     {
-        if (TargetedType == other.tag)
-
+        if (other.gameObject.layer == 6)
         {
-            targetsReachable.Remove(other.gameObject);
+            if (TargetedType == other.transform.parent.gameObject.tag)
+
+            {
+                targetsReachable.Remove(other.transform.parent.gameObject);
+            }
         }
     }
 }

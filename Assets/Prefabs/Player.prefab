@@ -664,6 +664,8 @@ MonoBehaviour:
   m_leftSprite: {fileID: 21300000, guid: 50d44cad9541d7e44a31980473c5e1a3, type: 3}
   m_rightSprite: {fileID: 21300000, guid: 0ecee0e342e495847aa5b90f625f5b08, type: 3}
   m_backSprite: {fileID: 21300000, guid: 9c61d7c55a7fc84479ed4a4ef8ca1b16, type: 3}
+  m_audioManager: {fileID: 3171545567767011277}
+  m_gameManager: {fileID: 0}
   m_map: {fileID: 0}
   m_base: {fileID: 0}
   dropdownAllyCount: {fileID: 0}
@@ -673,7 +675,7 @@ MonoBehaviour:
   respawnTime: 3
   ControlAlliesCollider: {fileID: 7794738027372799835}
   alliesControlled: []
-  m_audioManager: {fileID: 3171545567767011277}
+  regeneration: 3
 --- !u!58 &7794738027372799835
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -708,7 +710,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 43.43
+  m_Radius: 30.88
 --- !u!82 &5230887316325488621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -818,7 +820,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_soundStream: {fileID: 5230887316325488621}
-  m_musicStream: {fileID: 0}
+  m_musicStreamChill: {fileID: 0}
+  m_audioStreamWar: {fileID: 0}
   m_clip: {fileID: 8300000, guid: 8700a78b5078d754cad1345dcde46951, type: 3}
   m_clip1: {fileID: 8300000, guid: c48affd8e231e9947846bba61dde6597, type: 3}
   m_clip2: {fileID: 8300000, guid: 8f2118ada90cffe44b5800698bcc1c79, type: 3}

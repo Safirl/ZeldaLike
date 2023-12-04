@@ -32,25 +32,31 @@ public class EnemyBehavior : AbstractAI
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
-        if (other.tag == "Player")
+        if (other.gameObject.layer == 6)
         {
-            targetsReachable.Add(other.gameObject);
-        }
-        if (other.tag == "PlayerBase")
-        {
-            targetsReachable.Add(other.gameObject);
+            if (other.transform.parent.gameObject.tag == "Player")
+            {
+                targetsReachable.Add(other.transform.parent.gameObject);
+            }
+            if (other.transform.parent.gameObject.tag == "PlayerBase")
+            {
+                targetsReachable.Add(other.transform.parent.gameObject);
+            }
         }
     }
     protected override void OnTriggerExit2D(Collider2D other)
     {
         base.OnTriggerExit2D(other);
-        if (other.tag == "Player")
+        if (other.gameObject.layer == 6)
         {
-            targetsReachable.Remove(other.gameObject);
-        }
-        if (other.tag == "PlayerBase")
-        {
-            targetsReachable.Remove(other.gameObject);
+            if (other.transform.parent.gameObject.tag == "Player")
+            {
+                targetsReachable.Remove(other.transform.parent.gameObject);
+            }
+            if (other.transform.parent.gameObject.tag == "PlayerBase")
+            {
+                targetsReachable.Remove(other.transform.parent.gameObject);
+            }
         }
     }
 
