@@ -30,6 +30,8 @@ public class PlayerBehavior : AbstractCharacter
 
     [SerializeField] GameManager m_gameManager;
 
+    public float regeneration = 3f;
+
     //Get/SetManager--------------------------------
 
     public float GetRespawnTime()
@@ -69,6 +71,7 @@ public class PlayerBehavior : AbstractCharacter
     // (i.e. anything related with a RigidBody)
     void FixedUpdate()
     {
+        Regeneration();
         // If a dialog is on screen, the player should not be updated
         // If the map is displayed, the player should not be updated
         if (m_dialogDisplayer.IsOnScreen() || m_map.activeSelf)
@@ -256,6 +259,15 @@ public class PlayerBehavior : AbstractCharacter
     //   displayed when SPACE will be pressed
     // - the player is in an instantDialog zone, then he grabs the dialog information and
     //   displays it instantaneously
+
+
+    public void Regeneration()
+    {
+        if (lives < maxLives)
+        {
+            lives += regeneration * Time.deltaTime;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

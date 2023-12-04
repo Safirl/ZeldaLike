@@ -9,6 +9,8 @@ public class AbstractCharacter : MonoBehaviour
 {
 
     private CardinalDirections m_direction; // Current facing direction of the player
+
+    [Header("Stats")]
     [SerializeField] protected float lives;
     [SerializeField] protected int damage;
     [SerializeField] protected float attackSpeed;
@@ -16,14 +18,14 @@ public class AbstractCharacter : MonoBehaviour
     [SerializeField] protected float m_speed = 1f; // Speed of the player when he moves
     [SerializeField] protected Image m_lifeBar;
 
-
+    [Header("Rendu")]
     public Sprite m_frontSprite = null;
     public Sprite m_leftSprite = null;
     public Sprite m_rightSprite = null;
     public Sprite m_backSprite = null;
+    protected SpriteRenderer m_renderer;
 
     protected Rigidbody2D m_rb2D;
-    protected SpriteRenderer m_renderer;
 
     protected float timer = 0f;
 
