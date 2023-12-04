@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RessourceManager : MonoBehaviour
 {
-    private int coins = 10;
+    private int coins = 0;
     [SerializeField] private Text text;
 
 

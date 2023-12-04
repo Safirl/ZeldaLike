@@ -6,7 +6,7 @@
 
 using UnityEngine;
 using System.Collections;
-using UnityEditorInternal;
+//using UnityEditorInternal;
 
 public class AudioManager : MonoBehaviour {
 	public static AudioManager instance = null;
