@@ -119,6 +119,8 @@ public class GameManager : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
 
         nextWaveNumber = currentWave + 1;
+        if (FindAnyObjectByType<RessourceManager>().GetComponent<RessourceManager>() != null)
+            RessourceManager = FindAnyObjectByType<RessourceManager>().GetComponent<RessourceManager>();
     }
 
     void Update()
