@@ -6,13 +6,11 @@ using UnityEngine.UI;
 
 public class RessourceManager : MonoBehaviour
 {
-
-    private int coins = 20;
+    private int coins = 10;
     [SerializeField] private Text text;
-    // Start is called before the first frame update
+
 
     //Getter et Setter ------------------------
-    
     public int GetCoins()
     {
         return coins;

@@ -28,6 +28,11 @@ public class MessageManager : MonoBehaviour
     private string jsonResponse;
     private Message randomMessage;
 
+    public Message GetRandomMessage()
+    {
+        return randomMessage;
+    }
+
     void Start()
     {
         letter = GameObject.FindGameObjectWithTag("NPC");
