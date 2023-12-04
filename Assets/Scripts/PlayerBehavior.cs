@@ -168,7 +168,7 @@ public class PlayerBehavior : AbstractCharacter
         // - If not, then the player will shoot a fireball
         if (Input.GetKeyDown(KeyCode.Space) && !isWriting)
         {
-            if (m_closestNPCDialog != null)
+            if (m_closestNPCDialog != null && m_gameManager.GetEnemiesAlive())
             {
                 m_dialogDisplayer.SetDialog(m_closestNPCDialog.GetDialog());
             }
