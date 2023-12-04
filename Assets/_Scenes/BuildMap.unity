@@ -913,7 +913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0008544922, y: 0.00010681152}
+  m_AnchoredPosition: {x: 0.0008544922, y: 0.00012207031}
   m_SizeDelta: {x: 390.57, y: 189.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162504480
@@ -2130,6 +2130,7 @@ GameObject:
   - component: {fileID: 538676003}
   - component: {fileID: 538676002}
   - component: {fileID: 538676001}
+  - component: {fileID: 538676004}
   m_Layer: 5
   m_Name: Submit
   m_TagString: Untagged
@@ -2154,7 +2155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1721.7406, y: -286.78574}
+  m_AnchoredPosition: {x: 1721.7405, y: -286.78574}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &538676001
@@ -2201,7 +2202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 538676004}
         m_TargetAssemblyTypeName: MessageManager, Assembly-CSharp
         m_MethodName: Submit
         m_Mode: 1
@@ -2263,6 +2264,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538675998}
   m_CullTransparentMesh: 1
+--- !u!114 &538676004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538675998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ab0ff556a8b64499ac4e89e8f83b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBase: {fileID: 0}
+  message: {fileID: 1944550170}
+  messagePrefab: {fileID: 0}
+  dropdown: {fileID: 328272662}
+  letter: {fileID: 0}
 --- !u!1 &551385862
 GameObject:
   m_ObjectHideFlags: 0
