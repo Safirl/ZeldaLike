@@ -23,6 +23,7 @@ public class DialogManager : MonoBehaviour {
 
     public Text m_renderText;
     private List<DialogPage> m_dialogToDisplay;
+    [SerializeField] private GameObject Ally;
 
     void Awake () {
 
@@ -59,13 +60,18 @@ public class DialogManager : MonoBehaviour {
         {
             this.gameObject.SetActive(false);
 
-            //Debug.Log(GameObject.FindGameObjectWithTag("NPC"));
-
-            //Debug.Log("ici");
-
             // ----- enlever la lettre -----
             GameObject letter = GameObject.FindGameObjectWithTag("NPC");
             letter.SetActive(false);
+
+            Message randomMessage = letter.GetComponent<MessageManager>().GetRandomMessage();
+            for (int i = 1; i <= randomMessage.numberOfDefenders; i++)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                GameObject ally = Instantiate(Ally, player.transform.position, Quaternion.identity);
+                ally.transform.localScale = new Vector3(.6f, .6f, .6f);
+            }
+
         }
 
         // Removes the page when the player presses "space"
