@@ -58,7 +58,7 @@ public class MerchantBehavior : MonoBehaviour
         DialogPanel = ressourceManager.transform.Find("DialogPanel").gameObject;
         if (ressourceManager.GetCoins() >= 10)
         {
-            DialogPanel.GetComponent<MerchantDialog>().text.text = "You can trade 10 eggs for 3 soldiers. 'N' to avoid; 'Y' to buy";
+            DialogPanel.GetComponent<MerchantDialog>().text.text = "You can trade 10 eggs for 3 soldiers. 'N' to abort; 'Y' to buy";
             DialogPanel.SetActive(true);
             canBuy = true;
 

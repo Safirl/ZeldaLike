@@ -629,7 +629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_soundStream: {fileID: 84264158}
-  m_musicStream: {fileID: 84264157}
+  m_musicStreamChill: {fileID: 0}
+  m_audioStreamWar: {fileID: 0}
   m_clip: {fileID: 0}
   m_clip1: {fileID: 0}
   m_clip2: {fileID: 0}
@@ -1341,16 +1342,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 35679569315228540, guid: 5659915a2e1d8474c9bfacf9ec417f1e,
-        type: 3}
-      propertyPath: m_dialogWithPlayer.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 35679569315228540, guid: 5659915a2e1d8474c9bfacf9ec417f1e,
-        type: 3}
-      propertyPath: m_dialogWithPlayer.Array.data[0].text
-      value: "Bonne chance \xE0 toi !"
-      objectReference: {fileID: 0}
     - target: {fileID: 6878121688359867693, guid: 5659915a2e1d8474c9bfacf9ec417f1e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1419,11 +1410,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7949734240150607302, guid: 5659915a2e1d8474c9bfacf9ec417f1e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 701564828}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5659915a2e1d8474c9bfacf9ec417f1e, type: 3}
 --- !u!1 &246050288
 GameObject:
@@ -3034,24 +3021,6 @@ Transform:
   - {fileID: 453347081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &701564827 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7949734240150607302, guid: 5659915a2e1d8474c9bfacf9ec417f1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 236646962}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &701564828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701564827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf518dd916c016643bf7b6cbd6cd17c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &720770563
 GameObject:
   m_ObjectHideFlags: 0

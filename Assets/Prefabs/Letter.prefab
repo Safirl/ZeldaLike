@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 35679569315228540}
   - component: {fileID: 1555697925315771440}
   - component: {fileID: 7848353051386916419}
+  - component: {fileID: 6858773801578651338}
   m_Layer: 0
   m_Name: Letter
   m_TagString: NPC
@@ -136,13 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dialogWithPlayer:
-  - text: 'NPC : Bonjour ! '
-    color: {r: 0, g: 0, b: 0, a: 1}
-  - text: "Ikan : Bonjour, je cherche le village le plus proche. Sais-tu o\xF9 il
-      se trouve ?"
-    color: {r: 0, g: 0, b: 0, a: 1}
-  - text: "NPC : Derri\xE8re la montagne. Il te faudra traverser la terrible Grotte
-      Ah'Spirant'"
+  - text: "Bonne chance \xE0 toi !"
     color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1555697925315771440
 MonoBehaviour:
@@ -173,3 +168,15 @@ MonoBehaviour:
   messagePrefab: {fileID: 0}
   dropdown: {fileID: 0}
   letter: {fileID: 7949734240150607302}
+--- !u!114 &6858773801578651338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7949734240150607302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf518dd916c016643bf7b6cbd6cd17c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
