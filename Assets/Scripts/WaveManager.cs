@@ -8,13 +8,22 @@ public class WaveManager : MonoBehaviour
     private Wave currentWave;
     public GameManager gameManager;
     float HoldKeyCountDown = 3f;
+    ShowCountDown m_showCountDown;
 
+
+    public float getHoldKeyCountDown()
+    {
+        return HoldKeyCountDown;
+    }
 
     //--------------------------------------//
     //---------------Méthodes---------------//
     //--------------------------------------//
 
-    void Start(){}
+    void Start()
+    {
+        m_showCountDown = FindAnyObjectByType<ShowCountDown>();
+    }
 
     void Update()
     {
@@ -29,33 +38,37 @@ public class WaveManager : MonoBehaviour
     private void SpawnEnemies()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            HoldKeyCountDown = 3f;
+            HoldKeyCountDown = 3.3f;
 
         if (Input.GetKey(KeyCode.Space) && gameManager.GetEnemiesAlive() && !playerBehavior.GetIsWriting())
         {
             HoldKeyCountDown -= Time.deltaTime;
             Debug.Log(HoldKeyCountDown);
-            // check if the start time plus [holdTime] is more or equal to the current time.
-            // If so, we held the button for [holdTime] seconds.
-            if (HoldKeyCountDown <= 0)
+            if (HoldKeyCountDown < 3f)
             {
-                
-/*        if (Input.GetKey(KeyCode.F) && gameManager.GetEnemiesAlive() && !playerBehavior.GetIsWriting())
-        {*/
 
-            gameManager.SetCanWin(false);
-            gameManager.IncrementsCurrentWave();
 
-            for (int i = 1; i <= currentWave.TypeOfEnemyToSpawn[0].EnemyCount; i++)
-            {
-                SpawnEnemy(currentWave.TypeOfEnemyToSpawn[0].typeOfEnemies);
+                m_showCountDown.ShowWaveCountDown(true);
+
+                if (HoldKeyCountDown <= 0)
+                {
+
+                    gameManager.SetCanWin(false);
+                    gameManager.IncrementsCurrentWave();
+
+                    for (int i = 1; i <= currentWave.TypeOfEnemyToSpawn[0].EnemyCount; i++)
+                    {
+                        SpawnEnemy(currentWave.TypeOfEnemyToSpawn[0].typeOfEnemies);
+                    }
+
+                    gameManager.SetCanWin(true);
+                }
             }
-
-            gameManager.SetCanWin(true);
-            }
-
         }
-        //}
+        else
+        {
+            m_showCountDown.ShowWaveCountDown(false);
+        }
     }
 
     private void SpawnEnemy(GameObject typeOfEnemy)

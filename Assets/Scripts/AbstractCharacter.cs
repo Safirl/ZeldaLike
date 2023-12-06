@@ -15,7 +15,7 @@ public class AbstractCharacter : MonoBehaviour
     [SerializeField] protected int damage;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected float maxLives;
-    [SerializeField] protected float m_speed = 1f; // Speed of the player when he moves
+    [SerializeField] protected float m_speed = 3000f; // Speed of the player when he moves
     [SerializeField] protected Image m_lifeBar;
 
     [Header("Rendu")]
@@ -51,6 +51,15 @@ public class AbstractCharacter : MonoBehaviour
     public void SetDamage(int newDamage)
     {
         damage = newDamage;
+    }
+
+    public float GetSpeed()
+    {
+        return m_speed;
+    }
+    public void SetSpeed(float newSpeed)
+    {
+        m_speed = newSpeed;
     }
 
     public float Getlives()

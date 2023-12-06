@@ -25,10 +25,10 @@ public class AbstractAI : AbstractCharacter
     {
         return target;
     }
-    /*public void SetTarget(Transform newTarget)
+    public void SetTarget(Transform newTarget = null)
     {
         target = newTarget;
-    }*/
+    }
 
     //Getter---------------------------
 
@@ -97,6 +97,7 @@ public class AbstractAI : AbstractCharacter
     {
         if(!p.error)
         {
+            m_speed = 3000f;
             path = p;
             currentWayPoint = 0;
         }
@@ -146,23 +147,25 @@ public class AbstractAI : AbstractCharacter
 
     protected override void ChangeSpriteToMatchDirection(Vector2 f)
     {
+        float offSett = 10f;
+        Debug.Log(f);
         if (Mathf.Abs(f.x) > Mathf.Abs(f.y))
         {
-            if (f.x > 0)
+            if (f.x - offSett > 0)
             {
                 m_renderer.sprite = m_rightSprite;
             }
-            else if (f.x < 0)
+            else if (f.x + offSett < 0)
             {
                 m_renderer.sprite = m_leftSprite;
             }
         }
         else {
-            if (f.y > 0)
+            if (f.y - offSett > 0)
             {
                 m_renderer.sprite = m_backSprite;
             }
-            else if (f.y < 0)
+            else if (f.y + offSett < 0)
             {
                 m_renderer.sprite = m_frontSprite;
             }

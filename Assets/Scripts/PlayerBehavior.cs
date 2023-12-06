@@ -217,16 +217,16 @@ public class PlayerBehavior : AbstractCharacter
         }
     }
 
-    private void ControlAllies(bool selectAllies)
+    public void ControlAllies(bool selectAllies)
     {
         if (selectAllies)
         {
-            ControlAlliesCollider.enabled = true;
+            //ControlAlliesCollider.enabled = true;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, ControlAlliesCollider.radius);
 
             foreach (Collider2D collider in colliders)
             {
-                if (collider.gameObject.layer == 6 && collider.transform.parent.gameObject.tag != "Player" && collider.transform.parent.gameObject.tag != "PlayerBase")
+                if (collider.gameObject.layer == 6 && collider.transform.parent.gameObject.tag == "Ally")
                 {
                     alliesControlled.Add(collider.transform.parent.gameObject);
                 }
@@ -236,10 +236,11 @@ public class PlayerBehavior : AbstractCharacter
                 Color newColor;
                 if (ColorUtility.TryParseHtmlString("#FFBA6A", out newColor))
                 {
-                        ally.GetComponent<SpriteRenderer>().color = newColor;
+                    ally.GetComponent<SpriteRenderer>().color = newColor;
+                    
                 }
             }
-            ControlAlliesCollider.enabled = false;
+            //ControlAlliesCollider.enabled = false;
         }
 
         else
@@ -252,7 +253,9 @@ public class PlayerBehavior : AbstractCharacter
                     if (ally != null)
                     {
                         ally.gameObject.transform.position = transform.position;
+
                         ally.GetComponent<SpriteRenderer>().color = newColor;
+
                     }
                 }
             }

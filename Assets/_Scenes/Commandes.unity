@@ -225,8 +225,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53.5352, y: -20.702633}
-  m_SizeDelta: {x: 529.6577, y: 80.58}
+  m_AnchoredPosition: {x: 27.5996, y: -66.64359}
+  m_SizeDelta: {x: 477.7867, y: 172.4619}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &151890301
 MonoBehaviour:
@@ -249,7 +249,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -266,7 +266,10 @@ MonoBehaviour:
     Hold left ctrl to select soldiers. Release to
     place them.
 
-    Press space to attack or to interact with objetcs.'
+    Press space to attack or to interact with objetcs.
+
+    Hold
+    Space to start a wave.'
 --- !u!222 &151890302
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -449,8 +452,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1986953881}
   - {fileID: 151890300}
+  - {fileID: 1970283816}
   - {fileID: 1904376108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -683,7 +686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -153}
+  m_AnchoredPosition: {x: 0, y: -177}
   m_SizeDelta: {x: 125.7, y: 41.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904376109
@@ -780,7 +783,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904376107}
   m_CullTransparentMesh: 1
---- !u!1 &1986953880
+--- !u!1 &1970283815
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -788,9 +791,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1986953881}
-  - component: {fileID: 1986953883}
-  - component: {fileID: 1986953882}
+  - component: {fileID: 1970283816}
+  - component: {fileID: 1970283818}
+  - component: {fileID: 1970283817}
   m_Layer: 0
   m_Name: Touches (1)
   m_TagString: Untagged
@@ -798,13 +801,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1986953881
+--- !u!224 &1970283816
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986953880}
+  m_GameObject: {fileID: 1970283815}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -814,16 +817,16 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38.231228, y: -83}
-  m_SizeDelta: {x: 349.1509, y: 39.3457}
+  m_AnchoredPosition: {x: 27.5996, y: -122}
+  m_SizeDelta: {x: 477.7867, y: 19.587}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1986953882
+--- !u!114 &1970283817
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986953880}
+  m_GameObject: {fileID: 1970283815}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -838,9 +841,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
     m_FontSize: 20
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -850,14 +853,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press F to start a Wave.
---- !u!222 &1986953883
+  m_Text: Press M to send a message with a gift !
+--- !u!222 &1970283818
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986953880}
+  m_GameObject: {fileID: 1970283815}
   m_CullTransparentMesh: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

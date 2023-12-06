@@ -1599,13 +1599,25 @@ MonoBehaviour:
     - waveName: Wave 2
       TypeOfEnemyToSpawn:
       - typeOfEnemiesName: Type of enemies
-        EnemyCount: 8
+        EnemyCount: 5
         typeOfEnemies: {fileID: 7301510239305291458, guid: fe5f575fd072b7146872d7de8bf5abbb,
           type: 3}
     - waveName: Wave 3
       TypeOfEnemyToSpawn:
       - typeOfEnemiesName: Type of enemies
-        EnemyCount: 15
+        EnemyCount: 10
+        typeOfEnemies: {fileID: 7301510239305291458, guid: fe5f575fd072b7146872d7de8bf5abbb,
+          type: 3}
+    - waveName: Wave 4
+      TypeOfEnemyToSpawn:
+      - typeOfEnemiesName: Type of enemies
+        EnemyCount: 10
+        typeOfEnemies: {fileID: 7301510239305291458, guid: fe5f575fd072b7146872d7de8bf5abbb,
+          type: 3}
+    - waveName: Wave 5
+      TypeOfEnemyToSpawn:
+      - typeOfEnemiesName: Type of enemies
+        EnemyCount: 18
         typeOfEnemies: {fileID: 7301510239305291458, guid: fe5f575fd072b7146872d7de8bf5abbb,
           type: 3}
   - levelName: Level 2
@@ -1870,6 +1882,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
         type: 3}
+      propertyPath: lives
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
+        type: 3}
       propertyPath: m_map
       value: 
       objectReference: {fileID: 162504478}
@@ -1880,8 +1897,13 @@ PrefabInstance:
       objectReference: {fileID: 20152475}
     - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
         type: 3}
-      propertyPath: m_speed
-      value: 2
+      propertyPath: maxLives
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
+        type: 3}
+      propertyPath: regeneration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5014280399310019625, guid: eaa1810a33bf0a747b41067b68a0ffd2,
         type: 3}
@@ -10626,14 +10648,13 @@ GameObject:
   - component: {fileID: 984399003}
   - component: {fileID: 984399006}
   - component: {fileID: 984399005}
-  - component: {fileID: 984399004}
   m_Layer: 5
-  m_Name: Eggs
+  m_Name: CountDownText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &984399003
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10650,21 +10671,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -107.62122}
-  m_SizeDelta: {x: 353.5287, y: 50.827}
+  m_AnchoredPosition: {x: -0.0000059604645, y: -107.62122}
+  m_SizeDelta: {x: 336.064, y: 50.827}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &984399004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984399002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c754d108343534e9d8b6dec2d92fb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &984399005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10692,13 +10701,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Wave start in : '
+  m_Text: Wave is starting
 --- !u!222 &984399006
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17023,12 +17032,12 @@ GameObject:
   - component: {fileID: 1252800715}
   - component: {fileID: 1252800714}
   m_Layer: 5
-  m_Name: BGLifeBar
+  m_Name: CountDownBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1252800713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17576,7 +17585,7 @@ GameObject:
   - component: {fileID: 1396378775}
   - component: {fileID: 1396378774}
   m_Layer: 5
-  m_Name: LifeBar
+  m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18997,6 +19006,7 @@ GameObject:
   - component: {fileID: 1900891619}
   - component: {fileID: 1900891618}
   - component: {fileID: 1900891617}
+  - component: {fileID: 1900891620}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -19092,6 +19102,20 @@ Canvas:
   m_SortingLayerID: -542466337
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1900891620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900891615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c754d108343534e9d8b6dec2d92fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 984399005}
+  m_CountDownBar: {fileID: 1396378774}
 --- !u!1 &1913111288
 GameObject:
   m_ObjectHideFlags: 0

@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
         // mecanique coins
         if (GetEnemiesAlive() && nextWaveNumber == currentWave)
         {
-            RessourceManager.AddCoins(15);
+            RessourceManager.AddCoins(18);
             nextWaveNumber++;
         }
     }
@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator RespawnPlayer()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Player.gameObject.SetActive(true);
         Player.GetComponent<PlayerBehavior>().SetLivesToMaximum();
     }
