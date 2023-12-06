@@ -28,10 +28,10 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space))
             HoldKeyCountDown = 3f;
 
-        if (Input.GetKey(KeyCode.F) && gameManager.GetEnemiesAlive() && !playerBehavior.GetIsWriting())
+        if (Input.GetKey(KeyCode.Space) && gameManager.GetEnemiesAlive() && !playerBehavior.GetIsWriting())
         {
             HoldKeyCountDown -= Time.deltaTime;
             Debug.Log(HoldKeyCountDown);
