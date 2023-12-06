@@ -7,6 +7,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private PlayerBehavior playerBehavior;
     private Wave currentWave;
     public GameManager gameManager;
+    float HoldKeyCountDown = 3f;
 
 
     //--------------------------------------//
@@ -27,9 +28,20 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemies()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+            HoldKeyCountDown = 3f;
+
         if (Input.GetKey(KeyCode.F) && gameManager.GetEnemiesAlive() && !playerBehavior.GetIsWriting())
         {
-            //RegenerateAlliesLives();
+            HoldKeyCountDown -= Time.deltaTime;
+            Debug.Log(HoldKeyCountDown);
+            // check if the start time plus [holdTime] is more or equal to the current time.
+            // If so, we held the button for [holdTime] seconds.
+            if (HoldKeyCountDown <= 0)
+            {
+                
+/*        if (Input.GetKey(KeyCode.F) && gameManager.GetEnemiesAlive() && !playerBehavior.GetIsWriting())
+        {*/
 
             gameManager.SetCanWin(false);
             gameManager.IncrementsCurrentWave();
@@ -40,7 +52,10 @@ public class WaveManager : MonoBehaviour
             }
 
             gameManager.SetCanWin(true);
+            }
+
         }
+        //}
     }
 
     private void SpawnEnemy(GameObject typeOfEnemy)

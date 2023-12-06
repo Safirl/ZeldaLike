@@ -151,6 +151,8 @@ public class PlayerBehavior : AbstractCharacter
             {
                 ControlAllies(false);
             }
+
+
         }
 
         // If a dialog is on screen, the player should not be updated
